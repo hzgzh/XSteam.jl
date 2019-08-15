@@ -22,7 +22,7 @@ module XSteam
 #
 #*** Nomenclature ******************************************************************************************
 # First the wanted property then a _ then the wanted input properties. 
-# Example. T_ph is temperature as a function of pressure and enthalpy. 
+# Example. T_ph is temperature as a function of pressure and enthalpy.
 # For a list of valid functions se bellow or XSteam for MS Excel.
 # T     Temperature (deg C)
 # p	    Pressure    (bar)
