@@ -407,7 +407,7 @@ function hV_T(t)
     Out
 end
 
-function hl_T(t)
+function hL_T(t)
     T = toSIunit_T(t);
     if T > 273.15 && T < 647.096 
         p = p4_T(T);
@@ -4168,4 +4168,8 @@ psq(p,s)=x_ps(p,s)
 pqh(p,q)=h_px(p,q)
 
 export pth,ptv,pts,pht,phs,phq,phv,phq,pst,psh,psv,psq,pqh
+export Tsat_p,T_ph,T_ps,T_hs,psat_T,p_hs,hV_p,hL_p,hV_T,hL_T,h_pT,h_ps,h_px,h_prho,h_Tx,vV_p,vL_p,vV_T,vL_T,v_pT,v_ph,v_ps
+export rhoV_p,rhoL_p,rhoV_T,rhoL_T,rho_pT,rho_ph,rho_ps,sV_p,sL_p,sV_T,sL_T,s_pT,s_ph,uV_p,uL_p,uV_T,uL_T,u_pT,u_ph,u_ps,CpV_p
+export CpL_p,CpV_T,CpL_T,Cp_pT,Cp_ph,Cp_ps,CvV_p,CvL_p,CvV_T,CvL_T,Cv_pT,Cv_ph,Cv_ps,wV_p,wL_p,wV_T,wL_T,w_pT,w_ph,w_ps,my_pT,my_ph,my_ps
+export tcL_p,tcV_p,tcL_T,tcV_T,tc_pT,tc_ph,tc_hs,st_T,st_p,x_ph,x_ps,vx_ph,vx_ps;
 end
