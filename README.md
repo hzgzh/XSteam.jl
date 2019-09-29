@@ -1,4 +1,4 @@
-## XStam for julia
+## XSteam for julia
 Immigrate By hzgzh Date: 2019-9-29
 
 X Steam for julia is a implementation of the IAPWS IF97 standard formulation immigrate from XSteam for matlab By Magnus Holmgren, www.x-eng.com
