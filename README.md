@@ -66,9 +66,7 @@ international association for properties of water and steam (www.iapws.org).
 |-|-|-|-|
 |psat_T|T||Saturation pressure|
 |p_hs|h|s|Pressure as a function of h and s.|
-|p_hrho|h|rho|Pressure as a function of h and rho (density).
-Very unaccurate for solid water region since it's almost
-incompressible!|
+|p_hrho|h|rho|Pressure as a function of h and rho (density).Very unaccurate for solid water region since it's almost incompressible!|
 
 ### Enthalpy
 |Function|In1|In2|Out|
@@ -81,10 +79,7 @@ incompressible!|
 |h_ps| p| s| Entalpy as a function of pressure and entropy.|
 |h_px| p| x| Entalpy as a function of pressure and vapour fraction|
 |h_Tx| T| X| Entalpy as a function of temperature and vapour fraction|
-|h_prho| p| rho|
-Entalpy as a function of pressure and density. Observe for
-low temperatures (liquid) this equation has 2 solutions.
-(Not valid!!)|
+|h_prho| p| rho|Entalpy as a function of pressure and density. Observe for low temperatures (liquid) this equation has 2 solutions.(Not valid!!)|
 
 ### Specific volume
 |Function|In1|In2|Out|
@@ -149,8 +144,7 @@ low temperatures (liquid) this equation has 2 solutions.
 |CvL_T| T|| Saturated liquid isochoric heat capacity|
 |Cv_pT|p| T|Specific isochoric heat capacity as a function of pressure and temperature.|
 |Cv_ph|p| h|Specific isochoric heat capacity as a function of pressure and enthalpy|
-|Cv_ps|p| s|Specific isochoric heat capacity as a function of pressure
-and entropy.|
+|Cv_ps|p| s|Specific isochoric heat capacity as a function of pressure and entropy.|
 
 ### Speed of sound
 |Function|In1|In2|Out|
@@ -159,8 +153,7 @@ and entropy.|
 |wL_p| p|| Saturated liquid speed of sound|
 |wV_T| T|| Saturated vapour speed of sound|
 |wL_T| T|| Saturated liquid speed of sound|
-|w_pT|p| T|Speed of sound as a function of pressure and
-temperature.|
+|w_pT|p| T|Speed of sound as a function of pressure and temperature.|
 |w_ph| p| h| Speed of sound as a function of pressure and enthalpy|
 |w_ps| p| s| Speed of sound as a function of pressure and entropy.|
 
