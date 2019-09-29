@@ -170,8 +170,8 @@ since it will be two fases.
 |my_ps| p| s| Viscosity as a function of pressure and entropy.|
 
 ### Thermal Conductivity
-Revised release on the IAPS Formulation 1985 for the Thermal Conductivity of ordinary
-water substance (IAPWS 1998)
+Revised release on the IAPS Formulation 1985 for the Thermal Conductivity of ordinary water substance (IAPWS 1998)
+
 |Function|In1|In2|Out|
 |-|-|-|-|
 |tcL_p| p|| Saturated vapour thermal conductivity|
@@ -183,7 +183,8 @@ water substance (IAPWS 1998)
 |tc_hs| h| s| Thermal conductivity as a function of enthalpy and entropy|
 
 ### Surface Tension
-IAPWS Release on Surface Tension of Ordinary Water Substance, September 1994
+IAPWS Release on Surface Tension of Ordinary Water Substance,September 1994
+
 |Function|In1|In2|Out|
 |-|-|-|-|
 |st_T|T||Surface tension for two phase water/steam as a function of T|
