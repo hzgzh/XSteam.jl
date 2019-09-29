@@ -21,7 +21,7 @@ module XSteam
 #For a list of valid Steam Table functions se bellow or the XSteam macros for MS Excel.
 #
 #*** Nomenclature ******************************************************************************************
-# First the wanted property then a _ then the wanted input properties. 
+# First the wanted property then a _ then the wanted input properties.
 # Example. T_ph is temperature as a function of pressure and enthalpy.
 # For a list of valid functions se bellow or XSteam for MS Excel.
 # T     Temperature (deg C)
@@ -29,11 +29,11 @@ module XSteam
 # h	    Enthalpy    (kJ/kg)
 # v	    Specific volume (m3/kg)
 # rho	Density
-# s	    Specific entropy 
-# u	    Specific internal energy 
-# Cp	Specific isobaric heat capacity 
-# Cv	Specific isochoric heat capacity 
-# w	    Speed of sound 
+# s	    Specific entropy
+# u	    Specific internal energy
+# Cp	Specific isobaric heat capacity
+# Cv	Specific isochoric heat capacity
+# w	    Speed of sound
 # my	Viscosity
 # tc	Thermal Conductivity
 # st	Surface Tension
@@ -42,18 +42,18 @@ module XSteam
 #
 #*** Valid Steam table functions. ****************************************************************************
 #
-#Temperature	
+#Temperature
 #Tsat_p	Saturation temperature
 #T_ph	Temperture as a function of pressure and enthalpy
 #T_ps	Temperture as a function of pressure and entropy
 #T_hs	Temperture as a function of enthalpy and entropy
 #
-#Pressure	
+#Pressure
 #psat_T	Saturation pressure
-#p_hs	Pressure as a function of h and s. 
+#p_hs	Pressure as a function of h and s.
 #p_hrho Pressure as a function of h and rho. Very unaccurate for solid water region since it"s almost incompressible!
 #
-#Enthalpy	
+#Enthalpy
 #hV_p	Saturated vapour enthalpy
 #hL_p	Saturated liquid enthalpy
 #hV_T	Saturated vapour enthalpy
@@ -61,10 +61,10 @@ module XSteam
 #h_pT	Entalpy as a function of pressure and temperature.
 #h_ps	Entalpy as a function of pressure and entropy.
 #h_px	Entalpy as a function of pressure and vapour fraction
-#h_prho	Entalpy as a function of pressure and density. Observe for low temperatures (liquid) this equation has 2 solutions. 
+#h_prho	Entalpy as a function of pressure and density. Observe for low temperatures (liquid) this equation has 2 solutions.
 #h_Tx	Entalpy as a function of temperature and vapour fraction
 #
-#Specific volume	
+#Specific volume
 #vV_p	Saturated vapour volume
 #vL_p	Saturated liquid volume
 #vV_T	Saturated vapour volume
@@ -73,7 +73,7 @@ module XSteam
 #v_ph	Specific volume as a function of pressure and enthalpy
 #v_ps	Specific volume as a function of pressure and entropy.
 #
-#Density	
+#Density
 #rhoV_p	Saturated vapour density
 #rhoL_p	Saturated liquid density
 #rhoV_T	Saturated vapour density
@@ -82,7 +82,7 @@ module XSteam
 #rho_ph	Density as a function of pressure and enthalpy
 #rho_ps	Density as a function of pressure and entropy.
 #
-#Specific entropy 	
+#Specific entropy
 #sV_p	Saturated vapour entropy
 #sL_p	Saturated liquid entropy
 #sV_T	Saturated vapour entropy
@@ -90,7 +90,7 @@ module XSteam
 #s_pT	Specific entropy as a function of pressure and temperature (Returns saturated vapour entalpy if mixture.)
 #s_ph	Specific entropy as a function of pressure and enthalpy
 #
-#Specific internal energy 	
+#Specific internal energy
 #uV_p	Saturated vapour internal energy
 #uL_p	Saturated liquid internal energy
 #uV_T	Saturated vapour internal energy
@@ -99,16 +99,16 @@ module XSteam
 #u_ph	Specific internal energy as a function of pressure and enthalpy
 #u_ps	Specific internal energy as a function of pressure and entropy.
 #
-#Specific isobaric heat capacity 	
-#CpV_p	Saturated vapour heat capacity 
-#CpL_p	Saturated liquid heat capacity 
-#CpV_T	Saturated vapour heat capacity 
-#CpL_T	Saturated liquid heat capacity 
+#Specific isobaric heat capacity
+#CpV_p	Saturated vapour heat capacity
+#CpL_p	Saturated liquid heat capacity
+#CpV_T	Saturated vapour heat capacity
+#CpL_T	Saturated liquid heat capacity
 #Cp_pT	Specific isobaric heat capacity as a function of pressure and temperature.
 #Cp_ph	Specific isobaric heat capacity as a function of pressure and enthalpy
 #Cp_ps	Specific isobaric heat capacity as a function of pressure and entropy.
 #
-#Specific isochoric heat capacity 	
+#Specific isochoric heat capacity
 #CvV_p	Saturated vapour isochoric heat capacity
 #CvL_p	Saturated liquid isochoric heat capacity
 #CvV_T	Saturated vapour isochoric heat capacity
@@ -117,7 +117,7 @@ module XSteam
 #Cv_ph	Specific isochoric heat capacity as a function of pressure and enthalpy
 #Cv_ps	Specific isochoric heat capacity as a function of pressure and entropy.
 #
-#Speed of sound 	
+#Speed of sound
 #wV_p	Saturated vapour speed of sound
 #wL_p	Saturated liquid speed of sound
 #wV_T	Saturated vapour speed of sound
@@ -126,16 +126,16 @@ module XSteam
 #w_ph	Speed of sound as a function of pressure and enthalpy
 #w_ps	Speed of sound as a function of pressure and entropy.
 #
-#Viscosity	
-#Viscosity is not part of IAPWS Steam IF97. Equations from 
-#"Revised Release on the IAPWS Formulation 1985 for the Viscosity of Ordinary Water Substance", 2003 are used.	
-#Viscosity in the mixed region (4) is interpolated according to the density. This is not true since it will be two fases.	
+#Viscosity
+#Viscosity is not part of IAPWS Steam IF97. Equations from
+#"Revised Release on the IAPWS Formulation 1985 for the Viscosity of Ordinary Water Substance", 2003 are used.
+#Viscosity in the mixed region (4) is interpolated according to the density. This is not true since it will be two fases.
 #my_pT	Viscosity as a function of pressure and temperature.
 #my_ph	Viscosity as a function of pressure and enthalpy
 #my_ps	Viscosity as a function of pressure and entropy.
 #
-#Thermal Conductivity	
-#Revised release on the IAPS Formulation 1985 for the Thermal Conductivity of ordinary water substance (IAPWS 1998)	
+#Thermal Conductivity
+#Revised release on the IAPS Formulation 1985 for the Thermal Conductivity of ordinary water substance (IAPWS 1998)
 #tcL_p	Saturated vapour thermal conductivity
 #tcV_p	Saturated liquid thermal conductivity
 #tcL_T	Saturated vapour thermal conductivity
@@ -223,19 +223,21 @@ module XSteam
 #switch fun
     #***********************************************************************************************************
     #*1.2 Temperature
-function Tsat_p(p)
+Tsat_p(p)=Tsat_p(convert(Float64,p))
+function Tsat_p(p::Float64)
 
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
+    if p > 0.000611657  && p < 22.06395
         Out = fromSIunit_T(T4_p(p));
     else
         Out = NaN;
     end
     Out
 end
-function Tsat_s(s)
+Tsat_s(s)=Tsat_s(convert(Float64,s))
+function Tsat_s(s::Float64)
     s = toSIunit_s(s);
-    if s > -0.0001545495919  && s < 9.155759395 
+    if s > -0.0001545495919  && s < 9.155759395
         ps = p4_s(s);
         Out = fromSIunit_T(T4_p(ps));
     else
@@ -243,12 +245,12 @@ function Tsat_s(s)
     end
     Out
 end
-
-function T_ph(p,h)
+T_ph(p,h)=T_ph(convert(Float64,p),convert(Float64,h))
+function T_ph(p::Float64,h::Float64)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
     region = region_ph(p, h);
-    
+
     if region == 1
         Out = fromSIunit_T(T1_ph(p, h));
     elseif region == 2
@@ -264,12 +266,13 @@ function T_ph(p,h)
     end
     Out
 end
-
-function T_ps(p,s)
+T_ps(p,s)=T_ps(convert(Float64,p),convert(Float64,s))
+function T_ps(p::T,s::T) where T<:Real
+    #println("p=",p,"s=",s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
     Region = region_ps(p, s);
-   
+
     if Region == 1
         Out = fromSIunit_T(T1_ps(p, s));
     elseif Region == 2
@@ -282,15 +285,15 @@ function T_ps(p,s)
         Out = fromSIunit_T(T5_ps(p, s));
     else
         Out = NaN;
-    end 
+    end
     Out
 end
-
-function T_hs(h,s)
+T_hs(p,s)=T_hs(promote(h,s)...)
+function T_hs(h::Float64,s::Float64)
     h = toSIunit_h(h);
     s = toSIunit_s(s);
     Region = region_hs(h, s);
-   
+
     if Region == 1
         p1 = p1_hs(h, s);
         Out = fromSIunit_T(T1_ph(p1, h));
@@ -311,31 +314,32 @@ function T_hs(h,s)
 end
     #***********************************************************************************************************
     #*1.3 Pressure (p)
-function psat_T(t)
+psat_T(t)=psat_T(convert(Float64,t))
+function psat_T(t::Float64)
     T = toSIunit_T(t);
-    if T < 647.096  && T > 273.15 
+    if T < 647.096  && T > 273.15
         Out = fromSIunit_p(p4_T(T));
     else
         Out = NaN;
     end
     Out
 end
-
-function psat_s(s)
+psat_s(s)=psat_s(convert(Float64,s))
+function psat_s(s::Float64)
     s = toSIunit_s(s);
-    if s > -0.0001545495919  && s < 9.155759395 
+    if s > -0.0001545495919  && s < 9.155759395
         Out = fromSIunit_p(p4_s(s));
     else
         Out = NaN;
     end
     Out
 end
-
-function p_hs(h,s)
+p_hs(h,s)=p_hs(convert(Float64,h),convert(Float64,s))
+function p_hs(h::Float64,s::Float64)
     h = toSIunit_h(h);
     s = toSIunit_s(s);
     Region = region_hs(h, s);
-    
+
     if Region == 1
         Out = fromSIunit_p(p1_hs(h, s));
     elseif Region == 2
@@ -350,10 +354,10 @@ function p_hs(h,s)
     else
         Out = NaN;
     end
-    Out 
+    Out
 end
-
-function p_hrho(h,rho)
+p_hrho(h,rho)=p_hrho(promote(h,rho)...)
+function p_hrho(h::Float64,rho::Float64)
     h=h;
     rho=rho;
 #Not valid for water or sumpercritical since water rho does not change very much with p.
@@ -376,19 +380,20 @@ function p_hrho(h,rho)
 end
     #***********************************************************************************************************
     #*1.4 Enthalpy (h)
-function hV_p(p)
+hV_p(p)=hV_p(convert(Float64,p))
+function hV_p(p::Float64)
     p = toSIunit_p(p);
-    if p > 0.000611657 && p < 22.06395 
+    if p > 0.000611657 && p < 22.06395
         Out = fromSIunit_h(h4V_p(p));
     else
         Out = NaN;
     end
     Out
 end
-
-function hL_p(p)
+hL_p(p)=hL_p(convert(Float64,p))
+function hL_p(p::Float64)
     p = toSIunit_p(p);
-    if p > 0.000611657 && p < 22.06395 
+    if p > 0.000611657 && p < 22.06395
         Out = fromSIunit_h(h4L_p(p));
     else
         Out = NaN;
@@ -397,8 +402,9 @@ function hL_p(p)
 end
 
 function hV_T(t)
+    t=convert(Float64,t)
     T = toSIunit_T(t);
-    if T > 273.15 && T < 647.096 
+    if T > 273.15 && T < 647.096
         p = p4_T(T);
         Out = fromSIunit_h(h4V_p(p));
     else
@@ -408,8 +414,9 @@ function hV_T(t)
 end
 
 function hL_T(t)
+    t=convert(Float64,t)
     T = toSIunit_T(t);
-    if T > 273.15 && T < 647.096 
+    if T > 273.15 && T < 647.096
         p = p4_T(T);
         Out = fromSIunit_h(h4L_p(p));
     else
@@ -417,12 +424,13 @@ function hL_T(t)
     end
     Out
 end
-    
-function h_pT(p,t)
+
+h_pT(p,t)=h_pT(promote(p,t)...)
+function h_pT(p::Float64,t::Float64)
     p = toSIunit_p(p);
     T = toSIunit_T(t);
     Region = region_pT(p, T);
-    
+
     if Region == 1
         Out = fromSIunit_h(h1_pT(p, T));
     elseif Region == 2
@@ -438,12 +446,12 @@ function h_pT(p,t)
     end
     Out
 end
-    
-function h_ps(p,s)
+h_ps(p,s)=h_ps(promote(p,s)...)
+function h_ps(p::Float64,s::Float64)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
     Region = region_ps(p, s);
-    
+
     if Region == 1
         Out = fromSIunit_h(h1_pT(p, T1_ps(p, s)));
     elseif Region == 2
@@ -460,11 +468,11 @@ function h_ps(p,s)
     end
     Out
 end
-
-function h_px(p,x)
+h_px(p,x)=h_px(promote(p,x)...)
+function h_px(p::T,x::T) where T<:Real
     p = toSIunit_p(p);
     x = toSIunit_x(x);
-    if x > 1 || x < 0 || p >= 22.064 
+    if x > 1 || x < 0 || p >= 22.064
         Out = NaN;
         return
     end
@@ -473,12 +481,12 @@ function h_px(p,x)
     Out = hL + x * (hV - hL);
     Out
 end
-
-function h_prho(p,rho)
+h_prho(p,rho)=h_prho(promote(p,rho)...)
+function h_prho(p::Float64,rho::Float64)
     p = toSIunit_p(p);
     rho = 1 / toSIunit_v(1 / rho);
     Region = Region_prho(p, rho);
-    
+
     if Region == 1
             Out = fromSIunit_h(h1_pT(p, T1_prho(p, rho)));
     elseif Region == 2
@@ -504,11 +512,11 @@ function h_prho(p,rho)
     end
     Out
 end
-
-function h_Tx(t,x)
+h_Tx(t,x)=h_Tx(promote(t,x)...)
+function h_Tx(t::Float64,x::Float64)
     T = toSIunit_T(t);
     x = toSIunit_x(x);
-    if x > 1 || x < 0 || T >= 647.096 
+    if x > 1 || x < 0 || T >= 647.096
         Out = NaN;
         return Out
     end
@@ -520,10 +528,11 @@ function h_Tx(t,x)
 end
     #***********************************************************************************************************
     #*1.5 Specific Volume (v)
-function vV_p(p)
+vV_p(p)=vV_p(convert(Float64,p))
+function vV_p(p::Float64)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_v(v2_pT(p, T4_p(p)));
         else
             Out = fromSIunit_v(v3_ph(p, h4V_p(p)));
@@ -534,11 +543,12 @@ function vV_p(p)
     Out
 end
 rhoV_p(p)=1/vV_p(p)
-    
-function vL_p(p)
+
+vL_p(p)=vL_p(convert(Float64,p))
+function vL_p(p::Float64)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_v(v1_pT(p, T4_p(p)));
         else
             Out = fromSIunit_v(v3_ph(p, h4L_p(p)));
@@ -549,11 +559,11 @@ function vL_p(p)
     Out
 end
 rhoL_p(p)=1/vL_p(p)
-
-function vV_T(t)
+vV_T(t)=vV_T(convert(Float64,t))
+function vV_T(t::Float64)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_v(v2_pT(p4_T(T), T));
         else
             Out = fromSIunit_v(v3_ph(p4_T(T), h4V_p(p4_T(T))));
@@ -564,11 +574,11 @@ function vV_T(t)
     Out
 end
 rhoV_T(t)=1/vV_T(t)
-
-function vL_T(t)
+vL_T(t)=vL_T(convert(Float64,t))
+function vL_T(t::Float64)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_v(v1_pT(p4_T(T), T));
         else
             Out = fromSIunit_v(v3_ph(p4_T(T), h4L_p(p4_T(T))));
@@ -584,7 +594,7 @@ function v_pT(p,t)
     p = toSIunit_p(p);
     T = toSIunit_T(t);
     Region = region_pT(p, T);
-    
+
     if Region == 1
         Out = fromSIunit_v(v1_pT(p, T));
     elseif Region == 2
@@ -600,14 +610,14 @@ function v_pT(p,t)
     end
     Out
 end
- 
+
 rho_pT(p,t)=1/v_pT(p,t)
-    
+
 function v_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
     Region = region_ph(p, h);
-    
+
     if Region == 1
         Out = fromSIunit_v(v1_pT(p, T1_ph(p, h)));
     elseif Region == 2
@@ -616,7 +626,7 @@ function v_ph(p,h)
         Out = fromSIunit_v(v3_ph(p, h));
     elseif Region == 4
         xs = x4_ph(p, h);
-        if p < 16.529 
+        if p < 16.529
             v4v = v2_pT(p, T4_p(p));
             v4L = v1_pT(p, T4_p(p));
         else
@@ -638,7 +648,7 @@ function v_ps(p,s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
     Region = region_ps(p, s);
-   
+
     if Region == 1
         Out = fromSIunit_v(v1_pT(p, T1_ps(p, s)));
     elseif Region == 2
@@ -647,7 +657,7 @@ function v_ps(p,s)
         Out = fromSIunit_v(v3_ps(p, s));
     elseif Region == 4
         xs = x4_ps(p, s);
-        if p < 16.529 
+        if p < 16.529
             v4v = v2_pT(p, T4_p(p));
             v4L = v1_pT(p, T4_p(p));
         else
@@ -671,8 +681,8 @@ rho_ps(p,s)=1/v_ps(p,s)
     #*1.7 Specific entropy (s)
 function sV_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_s(s2_pT(p, T4_p(p)));
         else
             Out = fromSIunit_s(s3_rhoT(1 / (v3_ph(p, h4V_p(p))), T4_p(p)));
@@ -685,8 +695,8 @@ end
 
 function sL_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_s(s1_pT(p, T4_p(p)));
         else
             Out = fromSIunit_s(s3_rhoT(1 / (v3_ph(p, h4L_p(p))), T4_p(p)));
@@ -699,8 +709,8 @@ end
 
 function sV_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_s(s2_pT(p4_T(T), T));
         else
             Out = fromSIunit_s(s3_rhoT(1 / (v3_ph(p4_T(T), h4V_p(p4_T(T)))), T));
@@ -713,8 +723,8 @@ end
 
 function sL_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_s(s1_pT(p4_T(T), T));
         else
             Out = fromSIunit_s(s3_rhoT(1 / (v3_ph(p4_T(T), h4L_p(p4_T(T)))), T));
@@ -723,13 +733,13 @@ function sL_T(t)
         Out = NaN;
     end
     Out
-end  
+end
 
 function s_pT(p,t)
     p = toSIunit_p(p);
     T = toSIunit_T(t);
     Region = region_pT(p, T);
-    
+
     if Region == 1
         Out = fromSIunit_s(s1_pT(p, T));
     elseif Region == 2
@@ -752,7 +762,7 @@ function s_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
     Region = region_ph(p, h);
-   
+
     if Region == 1
         T = T1_ph(p, h);
         Out = fromSIunit_s(s1_pT(p, T));
@@ -766,7 +776,7 @@ function s_ph(p,h)
     elseif Region == 4
         Ts = T4_p(p);
         xs = x4_ph(p, h);
-        if p < 16.529 
+        if p < 16.529
             s4v = s2_pT(p, Ts);
             s4L = s1_pT(p, Ts);
         else
@@ -784,13 +794,13 @@ function s_ph(p,h)
     end
     Out
 end
-    
+
     #***********************************************************************************************************
     #*1.8 Specific internal energy (u)
 function uV_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_u(u2_pT(p, T4_p(p)));
         else
             Out = fromSIunit_u(u3_rhoT(1 / (v3_ph(p, h4V_p(p))), T4_p(p)));
@@ -803,8 +813,8 @@ end
 
 function uL_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_u(u1_pT(p, T4_p(p)));
         else
             Out = fromSIunit_u(u3_rhoT(1 / (v3_ph(p, h4L_p(p))), T4_p(p)));
@@ -817,8 +827,8 @@ end
 
 function uV_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_u(u2_pT(p4_T(T), T));
         else
             Out = fromSIunit_u(u3_rhoT(1 / (v3_ph(p4_T(T), h4V_p(p4_T(T)))), T));
@@ -831,8 +841,8 @@ end
 
 function uL_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_u(u1_pT(p4_T(T), T));
         else
             Out = fromSIunit_u(u3_rhoT(1 / (v3_ph(p4_T(T), h4L_p(p4_T(T)))), T));
@@ -847,7 +857,7 @@ function u_pT(p,t)
     p = toSIunit_p(p);
     T = toSIunit_T(t);
     Region = region_pT(p, T);
-    
+
     if Region == 1
         Out = fromSIunit_u(u1_pT(p, T));
     elseif Region == 2
@@ -870,7 +880,7 @@ function u_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
     Region = region_ph(p, h);
-   
+
     if Region == 1
         Ts = T1_ph(p, h);
         Out = fromSIunit_u(u1_pT(p, Ts));
@@ -884,7 +894,7 @@ function u_ph(p,h)
     elseif Region == 4
         Ts = T4_p(p);
         xs = x4_ph(p, h);
-        if p < 16.529 
+        if p < 16.529
             u4v = u2_pT(p, Ts);
             u4L = u1_pT(p, Ts);
         else
@@ -902,12 +912,12 @@ function u_ph(p,h)
     end
     Out
 end
-    
+
 function u_ps(p,s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
     Region = region_ps(p, s);
-    
+
     if Region == 1
         Ts = T1_ps(p, s);
         Out = fromSIunit_u(u1_pT(p, Ts));
@@ -919,7 +929,7 @@ function u_ps(p,s)
         Ts = T3_ps(p, s);
         Out = fromSIunit_u(u3_rhoT(rhos, Ts));
     elseif Region == 4
-        if p < 16.529 
+        if p < 16.529
             uLp = u1_pT(p, T4_p(p));
             uVp = u2_pT(p, T4_p(p));
         else
@@ -940,8 +950,8 @@ end
     #*1.9 Specific isobaric heat capacity (Cp)
 function CpV_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_Cp(Cp2_pT(p, T4_p(p)));
         else
             Out = fromSIunit_Cp(Cp3_rhoT(1 / (v3_ph(p, h4V_p(p))), T4_p(p)));
@@ -954,8 +964,8 @@ end
 
 function CpL_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_Cp(Cp1_pT(p, T4_p(p)));
         else
             Out = fromSIunit_Cp(Cp3_rhoT(1 / (v3_ph(p, h4L_p(p))), T4_p(p)));
@@ -968,8 +978,8 @@ end
 
 function CpV_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_Cp(Cp2_pT(p4_T(T), T));
         else
             Out = fromSIunit_Cp(Cp3_rhoT(1 / (v3_ph(p4_T(T), h4V_p(p4_T(T)))), T));
@@ -982,8 +992,8 @@ end
 
 function CpL_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_Cp(Cp1_pT(p4_T(T), T));
         else
             Out = fromSIunit_Cp(Cp3_rhoT(1 / (v3_ph(p4_T(T), h4L_p(p4_T(T)))), T));
@@ -998,7 +1008,7 @@ function Cp_pT(p,t)
     p = toSIunit_p(p);
     T = toSIunit_T(t);
     Region = region_pT(p, T);
-    
+
     if Region == 1
         Out = fromSIunit_Cp(Cp1_pT(p, T));
     elseif Region == 2
@@ -1016,12 +1026,12 @@ function Cp_pT(p,t)
     end
     Out
 end
-    
+
 function Cp_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
     Region = region_ph(p, h);
-    
+
     if Region == 1
         Ts = T1_ph(p, h);
         Out = fromSIunit_Cp(Cp1_pT(p, Ts));
@@ -1042,12 +1052,12 @@ function Cp_ph(p,h)
     end
     Out
 end
-    
+
 function Cp_ps(p,s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
     Region = region_ps(p, s);
-   
+
     if Region == 1
         Ts = T1_ps(p, s);
         Out = fromSIunit_Cp(Cp1_pT(p, Ts));
@@ -1072,8 +1082,8 @@ end
     #*1.10 Specific isochoric heat capacity (Cv)
 function CvV_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_Cv(Cv2_pT(p, T4_p(p)));
         else
             Out = fromSIunit_Cv(Cv3_rhoT(1 / (v3_ph(p, h4V_p(p))), T4_p(p)));
@@ -1086,8 +1096,8 @@ end
 
 function CvL_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_Cv(Cv1_pT(p, T4_p(p)));
         else
             Out = fromSIunit_Cv(Cv3_rhoT(1 / (v3_ph(p, h4L_p(p))), T4_p(p)));
@@ -1100,8 +1110,8 @@ end
 
 function CvV_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_Cv(Cv2_pT(p4_T(T), T));
         else
             Out = fromSIunit_Cv(Cv3_rhoT(1 / (v3_ph(p4_T(T), h4V_p(p4_T(T)))), T));
@@ -1114,8 +1124,8 @@ end
 
 function CvL_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_Cv(Cv1_pT(p4_T(T), T));
         else
             Out = fromSIunit_Cv(Cv3_rhoT(1 / (v3_ph(p4_T(T), h4L_p(p4_T(T)))), T));
@@ -1130,7 +1140,7 @@ function Cv_pT(p,t)
     p = toSIunit_p(p);
     T = toSIunit_T(t);
     Region = region_pT(p, T);
-    
+
     if Region == 1
         Out = fromSIunit_Cv(Cv1_pT(p, T));
     elseif Region == 2
@@ -1148,12 +1158,12 @@ function Cv_pT(p,t)
     end
     Out
 end
-    
+
 function Cv_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
     Region = region_ph(p, h);
-    
+
     if Region == 1
         Ts = T1_ph(p, h);
         Out = fromSIunit_Cv(Cv1_pT(p, Ts));
@@ -1174,12 +1184,12 @@ function Cv_ph(p,h)
     end
     Out
 end
-    
+
 function Cv_ps(p,s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
     Region = region_ps(p, s);
-   
+
     if Region == 1
         Ts = T1_ps(p, s);
         Out = fromSIunit_Cv(Cv1_pT(p, Ts));
@@ -1200,13 +1210,13 @@ function Cv_ps(p,s)
     end
     Out
 end
-    
+
     #***********************************************************************************************************
     #*1.11 Speed of sound
 function wV_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_w(w2_pT(p, T4_p(p)));
         else
             Out = fromSIunit_w(w3_rhoT(1 / (v3_ph(p, h4V_p(p))), T4_p(p)));
@@ -1219,8 +1229,8 @@ end
 
 function wL_p(p)
     p = toSIunit_p(p);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             Out = fromSIunit_w(w1_pT(p, T4_p(p)));
         else
             Out = fromSIunit_w(w3_rhoT(1 / (v3_ph(p, h4L_p(p))), T4_p(p)));
@@ -1233,8 +1243,8 @@ end
 
 function wV_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_w(w2_pT(p4_T(T), T));
         else
             Out = fromSIunit_w(w3_rhoT(1 / (v3_ph(p4_T(T), h4V_p(p4_T(T)))), T));
@@ -1247,8 +1257,8 @@ end
 
 function wL_T(t)
     T = toSIunit_T(t);
-    if T > 273.15  && T < 647.096 
-        if T <= 623.15 
+    if T > 273.15  && T < 647.096
+        if T <= 623.15
             Out = fromSIunit_w(w1_pT(p4_T(T), T));
         else
             Out = fromSIunit_w(w3_rhoT(1 / (v3_ph(p4_T(T), h4L_p(p4_T(T)))), T));
@@ -1263,7 +1273,7 @@ function w_pT(p,t)
     p = toSIunit_p(p);
     T = toSIunit_T(t);
     Region = region_pT(p, T);
-    
+
     if Region == 1
         Out = fromSIunit_w(w1_pT(p, T));
     elseif Region == 2
@@ -1281,12 +1291,12 @@ function w_pT(p,t)
     end
     Out
 end
-    
+
 function w_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
     Region = region_ph(p, h);
-    
+
     if Region == 1
         Ts = T1_ph(p, h);
         Out = fromSIunit_w(w1_pT(p, Ts));
@@ -1307,12 +1317,12 @@ function w_ph(p,h)
     end
     Out
 end
-    
+
 function w_ps(p,s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
     Region = region_ps(p, s);
-    
+
     if Region == 1
         Ts = T1_ps(p, s);
         Out = fromSIunit_w(w1_pT(p, Ts));
@@ -1339,7 +1349,7 @@ function my_pT(p,t)
     p = toSIunit_p(p);
     T = toSIunit_T(t);
     Region = region_pT(p, T);
-    
+
     if Region == 4
         Out = NaN;
     elseif Region in [1,2,3,5]
@@ -1354,23 +1364,23 @@ function my_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
     Region = region_ph(p, h);
-    
+
     if Region in [1, 2, 3, 5]
         Out = fromSIunit_my(my_AllRegions_ph(p, h));
     elseif Region == 4
-        Out = NaN;  
+        Out = NaN;
     else
         Out = NaN;
     end
     Out
 end
-    
+
 function my_ps(p,s)
     h = h_ps(p,s);
     Out = my_ph(p,h);
     Out
 end
-    
+
     #***********************************************************************************************************
     #*1.13 Prandtl
 function pr_pT(p,t)
@@ -1398,14 +1408,14 @@ function st_T(t)
     Out = fromSIunit_st(Surface_Tension_T(T));
     Out
 end
-    
+
 function st_p(p)
     T = Tsat_p(p);
     T = toSIunit_T(T);
     Out = fromSIunit_st(Surface_Tension_T(T));
     Out
 end
-    
+
     #***********************************************************************************************************
     #*1.16 Thermal conductivity
 function tcL_p(p)
@@ -1418,7 +1428,7 @@ function tcL_p(p)
     Out = fromSIunit_tc(tc_ptrho(p, T, rho));
     Out
 end
-    
+
 function tcV_p(p)
     ps = p;
     T = Tsat_p(ps);
@@ -1498,7 +1508,7 @@ end
 function x_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
-    if p > 0.000611657  && p < 22.06395 
+    if p > 0.000611657  && p < 22.06395
         Out = fromSIunit_x(x4_ph(p, h));
     else
         Out = NaN;
@@ -1509,7 +1519,7 @@ end
 function x_ps(p,s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
-    if p > 0.000611657  && p < 22.06395 
+    if p > 0.000611657  && p < 22.06395
         Out = fromSIunit_x(x4_ps(p, s));
     else
         Out = NaN;
@@ -1521,8 +1531,8 @@ end
 function vx_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             vL = v1_pT(p, T4_p(p));
             vV = v2_pT(p, T4_p(p));
         else
@@ -1540,8 +1550,8 @@ end
 function vx_ps(p,s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
-    if p > 0.000611657  && p < 22.06395 
-        if p < 16.529 
+    if p > 0.000611657  && p < 22.06395
+        if p < 16.529
             vL = v1_pT(p, T4_p(p));
             vV = v2_pT(p, T4_p(p));
         else
@@ -1968,10 +1978,10 @@ end
 function T2_ph(p, h)
 #Release on the IAPWS Industrial formulation 1997 for the Thermodynamic Properties of Water and Steam, September 1997
 #6 Equations for Region 2,6.3.1 The Backward Equations T( p, h ) for Subregions 2a, 2b, and 2c
-if p < 4 
+if p < 4
     sub_reg = 1;
 else
-    if p < (905.84278514723 - 0.67955786399241 * h + 1.2809002730136E-04 * h ^ 2) 
+    if p < (905.84278514723 - 0.67955786399241 * h + 1.2809002730136E-04 * h ^ 2)
         sub_reg = 2;
     else
         sub_reg = 3;
@@ -2022,10 +2032,10 @@ function T2_ps(p, s)
 #Release on the IAPWS Industrial formulation 1997 for the Thermodynamic Properties of Water and Steam, September 1997
 #6 Equations for Region 2,6.3.2 The Backward Equations T( p, s ) for Subregions 2a, 2b, and 2c
 #Page 26
-if p < 4 
+if p < 4
     sub_reg = 1;
 else
-    if s < 5.85 
+    if s < 5.85
         sub_reg = 3;
     else
         sub_reg = 2;
@@ -2077,10 +2087,10 @@ end
 function p2_hs(h, s)
 #Supplementary Release on Backward Equations for Pressure as a function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial formulation 1997 for the Thermodynamic Properties of Water and Steam
 #Chapter 6:Backward Equations p(h,s) for Region 2
-if h < (-3498.98083432139 + 2575.60716905876 * s - 421.073558227969 * s ^ 2 + 27.6349063799944 * s ^ 3) 
+if h < (-3498.98083432139 + 2575.60716905876 * s - 421.073558227969 * s ^ 2 + 27.6349063799944 * s ^ 3)
     sub_reg = 1;
 else
-    if s < 5.85 
+    if s < 5.85
         sub_reg = 3;
     else
         sub_reg = 2;
@@ -2130,11 +2140,11 @@ end
 p2_hs
 end
 
-function T2_prho(p,rho) 
+function T2_prho(p,rho)
   #Solve by iteration. Observe that fo low temperatures this equation has 2 solutions.
   #Solve with half interval method
 
-  if p < 16.5292 
+  if p < 16.5292
     Low_Bound = T4_p(p);
   else
     Low_Bound = B23T_p(p);
@@ -2333,7 +2343,7 @@ function T3_ph(p, h)
 #Section 3.3 Backward Equations T(p,h) and v(p,h) for Subregions 3a and 3b
 #Boundary equation, Eq 1 Page 5
 h3ab = 2014.64004206875 + 3.74696550136983 * p - 2.19921901054187E-02 * p ^ 2 + 8.7513168600995E-05 * p ^ 3;
-if h < h3ab 
+if h < h3ab
     #Subregion 3a
     #Eq 2, Table 3, Page 7
     Ii = [-12, -12, -12, -12, -12, -12, -12, -12, -10, -10, -10, -8, -8, -8, -8, -5, -3, -2, -2, -2, -1, -1, 0, 0, 1, 3, 3, 4, 4, 10, 12];
@@ -2369,7 +2379,7 @@ function v3_ph(p, h)
 #Section 3.3 Backward Equations T(p,h) and v(p,h) for Subregions 3a and 3b
 #Boundary equation, Eq 1 Page 5
 h3ab = 2014.64004206875 + 3.74696550136983 * p - 2.19921901054187E-02 * p ^ 2 + 8.7513168600995E-05 * p ^ 3;
-if h < h3ab 
+if h < h3ab
     #Subregion 3a
     #Eq 4, Table 6, Page 9
     Ii = [-12, -12, -12, -12, -10, -10, -10, -8, -8, -6, -6, -6, -4, -4, -3, -2, -2, -1, -1, -1, -1, 0, 0, 1, 1, 1, 2, 2, 3, 4, 5, 8];
@@ -2404,7 +2414,7 @@ function T3_ps(p, s)
 #2004
 #3.4 Backward Equations T(p,s) and v(p,s) for Subregions 3a and 3b
 #Boundary equation, Eq 6 Page 11
-if s <= 4.41202148223476 
+if s <= 4.41202148223476
     #Subregion 3a
     #Eq 6, Table 10, Page 11
     Ii = [-12, -12, -10, -10, -10, -10, -8, -8, -8, -8, -6, -6, -6, -5, -5, -5, -4, -4, -4, -2, -2, -1, -1, 0, 0, 0, 1, 2, 2, 3, 8, 8, 10];
@@ -2439,7 +2449,7 @@ function v3_ps(p, s)
 #2004
 #3.4 Backward Equations T(p,s) and v(p,s) for Subregions 3a and 3b
 #Boundary equation, Eq 6 Page 11
-if s <= 4.41202148223476 
+if s <= 4.41202148223476
     #Subregion 3a
     #Eq 8, Table 13, Page 14
     Ii = [-12, -12, -12, -10, -10, -10, -10, -8, -8, -8, -8, -6, -5, -4, -3, -3, -2, -2, -1, -1, 0, 0, 0, 1, 2, 4, 5, 6];
@@ -2476,7 +2486,7 @@ function p3_hs(h, s)
 #Thermodynamic Properties of Water and Steam
 #2004
 #Section 3 Backward functions p(h,s), T(h,s), and v(h,s) for Region 3
-if s < 4.41202148223476 
+if s < 4.41202148223476
     #Subregion 3a
     #Eq 1, Table 3, Page 8
     Ii = [0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 6, 7, 8, 10, 10, 14, 18, 20, 22, 22, 24, 28, 28, 32, 32];
@@ -2518,7 +2528,7 @@ if p < 22.06395    #Bellow tripple point
   else
     Low_Bound = h4V_p(p);  #Min h 鋜 Vapour h.
     High_Bound = h2_pT(p, B23T_p(p));
-  end 
+  end
 else                  #Above tripple point. R3 from R2 till R3.
   Low_Bound = h1_pT(p, 623.15);
   High_Bound = h2_pT(p, B23T_p(p));
@@ -2529,7 +2539,7 @@ hs=0.0
 while abs(T - Ts) > 0.00001
     hs = (Low_Bound + High_Bound) / 2;
     Ts = T3_ph(p, hs);
-    if Ts > T 
+    if Ts > T
         High_Bound = hs;
     else
         Low_Bound = hs;
@@ -2666,7 +2676,7 @@ function h4L_p(p)
     hs=0.0
 if (p > 0.000611657 && p < 22.06395)==1
     Ts = T4_p(p);
-    if p < 16.529 
+    if p < 16.529
         h4L_p = h1_pT(p, Ts);
     else
         #Iterate to find the the backward solution of p3sat_h
@@ -2676,13 +2686,13 @@ if (p > 0.000611657 && p < 22.06395)==1
         while abs(p - ps) > 0.00001
             hs = (Low_Bound + High_Bound) / 2;
             ps = p3sat_h(hs);
-            if ps > p 
+            if ps > p
                 High_Bound = hs;
             else
                 Low_Bound = hs;
             end
         end
-        
+
         h4L_p = hs;
     end
 else
@@ -2695,7 +2705,7 @@ function h4V_p(p)
     hs=0.0
 if p > 0.000611657 && p < 22.06395
     Ts = T4_p(p);
-    if p < 16.529 
+    if p < 16.529
         h4V_p = h2_pT(p, Ts);
     else
         #Iterate to find the the backward solution of p3sat_h
@@ -2705,7 +2715,7 @@ if p > 0.000611657 && p < 22.06395
         while abs(p - ps) > 0.000001
             hs = (Low_Bound + High_Bound) / 2;
             ps = p3sat_h(hs);
-            if ps < p 
+            if ps < p
                 High_Bound = hs;
             else
                 Low_Bound = hs;
@@ -2723,9 +2733,9 @@ function x4_ph(p, h)
 #Calculate vapour fraction from hL and hV for given p
 h4v = h4V_p(p);
 h4L = h4L_p(p);
-if h > h4v 
+if h > h4v
     x4_ph = 1;
-elseif h < h4L 
+elseif h < h4L
     x4_ph = 0;
 else
     x4_ph = (h - h4L) / (h4v - h4L);
@@ -2734,16 +2744,16 @@ x4_ph
 end
 
 function x4_ps(p, s)
-if p < 16.529 
+if p < 16.529
     ssv = s2_pT(p, T4_p(p));
     ssL = s1_pT(p, T4_p(p));
 else
     ssv = s3_rhoT(1 / (v3_ph(p, h4V_p(p))), T4_p(p));
     ssL = s3_rhoT(1 / (v3_ph(p, h4L_p(p))), T4_p(p));
 end
-if s < ssL 
+if s < ssL
     x4_ps = 0;
-elseif s > ssv 
+elseif s > ssv
     x4_ps = 1;
 else
     x4_ps = (s - ssL) / (ssv - ssL);
@@ -2776,15 +2786,15 @@ else
             PL = (Low_Bound + High_Bound) / 2;
             Ts = T4_p(PL);
             hL = h1_pT(PL, Ts);
-            if hL > h 
+            if hL > h
                 High_Bound = PL;
             else
                 Low_Bound = PL;
             end
         end
-    elseif s > 3.77828134 && s <= 4.41202148223476 
+    elseif s > 3.77828134 && s <= 4.41202148223476
         PL = p3sat_h(h);
-    elseif s > 4.41202148223476 && s <= 5.210887663 
+    elseif s > 4.41202148223476 && s <= 5.210887663
         PL = p3sat_h(h);
     end
     Low_Bound = 0.000611;
@@ -2796,7 +2806,7 @@ else
         #Calculate s4_ph
         Ts = T4_p(p);
         xs = x4_ph(p, h);
-        if p < 16.529 
+        if p < 16.529
             s4v = s2_pT(p, Ts);
             s4L = s1_pT(p, Ts);
         else
@@ -2806,8 +2816,8 @@ else
             s4L = s3_rhoT(1 / v4L, Ts);
         end
         sss = (xs * s4v + (1 - xs) * s4L);
-        
-        if sss < s 
+
+        if sss < s
             High_Bound = p;
         else
             Low_Bound = p;
@@ -3013,7 +3023,7 @@ Ts=0.0
 while abs(h - hs) > 0.00001
     Ts = (Low_Bound + High_Bound) / 2;
     hs = h5_pT(p, Ts);
-    if hs > h 
+    if hs > h
         High_Bound = Ts;
     else
         Low_Bound = Ts;
@@ -3033,7 +3043,7 @@ Ts=0.0
 while abs(s - ss) > 0.00001
     Ts = (Low_Bound + High_Bound) / 2;
     ss = s5_pT(p, Ts);
-    if ss > s 
+    if ss > s
         High_Bound = Ts;
     else
         Low_Bound = Ts;
@@ -3068,13 +3078,13 @@ end
 #***********************************************************************************************************
 #*3.1 Regions as a function of pT
 function region_pT(p, T)
-if T > 1073.15 && p < 10 && T < 2273.15 && p > 0.000611 
+if T > 1073.15 && p < 10 && T < 2273.15 && p > 0.000611
     region_pT = 5;
-elseif T <= 1073.15 && T > 273.15 && p <= 100 && p > 0.000611 
-    if T > 623.15 
-        if p > B23p_T(T) 
+elseif T <= 1073.15 && T > 273.15 && p <= 100 && p > 0.000611
+    if T > 623.15
+        if p > B23p_T(T)
             region_pT = 3;
-            if T < 647.096 
+            if T < 647.096
                 ps = p4_T(T);
                 if abs(p - ps) < 0.00001
                     region_pT = 4;
@@ -3085,7 +3095,7 @@ elseif T <= 1073.15 && T > 273.15 && p <= 100 && p > 0.000611
         end
     else
         ps = p4_T(T);
-        if abs(p - ps) < 0.00001 
+        if abs(p - ps) < 0.00001
             region_pT = 4;
         elseif p > ps
             region_pT = 1;
@@ -3103,14 +3113,14 @@ end
 #*3.2 Regions as a function of ph
 function region_ph(  p,   h)
 #Check if outside pressure limits
-if p < 0.000611657 || p > 100 
+if p < 0.000611657 || p > 100
     region_ph = 0;
     return region_ph
 end
 
 #Check if outside low h.
 if h < 0.963 * p + 2.2  #Linear adaption to h1_pt()+2 to speed up calcualations.
-    if h < h1_pT(p, 273.15) 
+    if h < h1_pT(p, 273.15)
         region_ph = 0;
         return region_ph
     end
@@ -3123,7 +3133,7 @@ if p < 16.5292  #Bellow region 3,Check  region 1,4,2,5
     if abs(h - hL) < 100  #if approximate is not god enough use real function
         hL = h1_pT(p, Ts);
     end
-    if h <= hL 
+    if h <= hL
         region_ph = 1;
         return region_ph
     end
@@ -3132,28 +3142,28 @@ if p < 16.5292  #Bellow region 3,Check  region 1,4,2,5
     if abs(h - hV) < 50  #if approximate is not god enough use real function
         hV = h2_pT(p, Ts);
     end
-    if h < hV 
+    if h < hV
         region_ph = 4;
         return region_ph
     end
     #Check upper limit of region 2 Quick Test
-    if h < 4000 
+    if h < 4000
         region_ph = 2;
         return region_ph
     end
     #Check region 2 (Real value)
     h_45 = h2_pT(p, 1073.15);
-    if h <= h_45 
+    if h <= h_45
         region_ph = 2;
         return region_ph
     end
     #Check region 5
-    if p > 10 
+    if p > 10
         region_ph = 0;
         return region_ph
     end
     h_5u = h5_pT(p, 2273.15);
-    if h < h_5u 
+    if h < h_5u
         region_ph = 5;
         return region_ph
     end
@@ -3161,14 +3171,14 @@ if p < 16.5292  #Bellow region 3,Check  region 1,4,2,5
     return
 else #for p>16.5292
     #Check if in region1
-    if h < h1_pT(p, 623.15) 
+    if h < h1_pT(p, 623.15)
         region_ph = 1;
         return region_ph
     end
     #Check if in region 3 or 4 (Bellow Reg 2)
-    if h < h2_pT(p, B23T_p(p)) 
+    if h < h2_pT(p, B23T_p(p))
         #Region 3 or 4
-        if p > p3sat_h(h) 
+        if p > p3sat_h(h)
             region_ph = 3;
             return region_ph
         else
@@ -3177,7 +3187,7 @@ else #for p>16.5292
         end
     end
     #Check if region 2
-    if h < h2_pT(p, 1073.15) 
+    if h < h2_pT(p, 1073.15)
         region_ph = 2;
         return region_ph
     end
@@ -3190,14 +3200,14 @@ end
 #***********************************************************************************************************
 #*3.3 Regions as a function of ps
 function  region_ps(  p,   s)
-if p < 0.000611657 || p > 100 || s < 0 || s > s5_pT(p, 2273.15) 
+if p < 0.000611657 || p > 100 || s < 0 || s > s5_pT(p, 2273.15)
     region_ps = 0;
     return region_ps
 end
 
 #Check region 5
-if s > s2_pT(p, 1073.15) 
-    if p <= 10 
+if s > s2_pT(p, 1073.15)
+    if p <= 10
         region_ps = 5;
         return region_ps
     else
@@ -3207,20 +3217,20 @@ if s > s2_pT(p, 1073.15)
 end
 
 #Check region 2
-if p > 16.529 
+if p > 16.529
     ss = s2_pT(p, B23T_p(p)); #Between 5.047  & 5.261. Use to speed up!
 else
     ss = s2_pT(p, T4_p(p));
 end
-if s > ss 
+if s > ss
     region_ps = 2;
     return region_ps
 end
 
 #Check region 3
 ss = s1_pT(p, 623.15);
-if p > 16.529  && s > ss 
-    if p > p3sat_s(s) 
+if p > 16.529  && s > ss
+    if p > p3sat_s(s)
         region_ps = 3;
         return region_ps
     else
@@ -3230,13 +3240,13 @@ if p > 16.529  && s > ss
 end
 
 #Check region 4 (Not inside region 3)
-if p < 16.529  && s > s1_pT(p, T4_p(p)) 
+if p < 16.529  && s > s1_pT(p, T4_p(p))
     region_ps = 4;
     return region_ps
 end
 
 #Check region 1
-if p > 0.000611657  && s > s1_pT(p, 273.15) 
+if p > 0.000611657  && s > s1_pT(p, 273.15)
     region_ps = 1;
     return region_ps
 end
@@ -3247,26 +3257,26 @@ end
 #***********************************************************************************************************
 #*3.4 Regions as a function of hs
 function  region_hs(  h,   s)
-if s < -0.0001545495919 
+if s < -0.0001545495919
     region_hs = 0;
     return region_hs
 end
 #Check linear adaption to p=0.000611. if bellow region 4.
 hMin = (((-0.0415878 - 2500.89262) / (-0.00015455 - 9.155759)) * s);
-if s < 9.155759395  && h < hMin 
+if s < 9.155759395  && h < hMin
     region_hs = 0;
     return region_hs
 end
 
 #******Kolla 1 eller 4. (+liten bit 鰒er B13)
-if s >= -0.0001545495919  && s <= 3.77828134 
-    if h < h4_s(s) 
+if s >= -0.0001545495919  && s <= 3.77828134
+    if h < h4_s(s)
         region_hs = 4;
         return region_hs
     elseif s < 3.397782955  #100MPa line is limiting
         TMax = T1_ps(100, s);
         hMax = h1_pT(100, TMax);
-        if h < hMax 
+        if h < hMax
             region_hs = 1;
             return region_hs
         else
@@ -3275,14 +3285,14 @@ if s >= -0.0001545495919  && s <= 3.77828134
         end
     else #The point is either in region 4,1,3. Check B23
         hB = hB13_s(s);
-        if h < hB 
+        if h < hB
             region_hs = 1;
             return region_hs
         end
         TMax = T3_ps(100, s);
         vmax = v3_ps(100, s);
         hMax = h3_rhoT(1 / vmax, TMax);
-        if h < hMax 
+        if h < hMax
             region_hs = 3;
             return region_hs
         else
@@ -3293,13 +3303,13 @@ if s >= -0.0001545495919  && s <= 3.77828134
 end
 
 #******Kolla region 2 eller 4. (講re delen av omr錮e b23-> max)
-if s >= 5.260578707  && s <= 11.9212156897728 
+if s >= 5.260578707  && s <= 11.9212156897728
     if s > 9.155759395  #Above region 4
         Tmin = T2_ps(0.000611, s);
         hMin = h2_pT(0.000611, Tmin);
         #function adapted to h(1073.15,s)
         hMax = -0.07554022 * s ^ 4 + 3.341571 * s ^ 3 - 55.42151 * s ^ 2 + 408.515 * s + 3031.338;
-        if h > hMin  && h < hMax 
+        if h > hMin  && h < hMax
             region_hs = 2;
             return region_hs
         else
@@ -3307,16 +3317,16 @@ if s >= 5.260578707  && s <= 11.9212156897728
             return region_hs
         end
     end
-    
+
     hV = h4_s(s);
-    
+
     if h < hV   #Region 4. Under region 3.
         region_hs = 4;
         return region_hs
     end
-    if s < 6.04048367171238 
-        TMax = T2_ps(100, s);
-        hMax = h2_pT(100, TMax);
+    if s < 6.04048367171238
+        TMax = T2_ps(100., s);
+        hMax = h2_pT(100., TMax);
     else
         #function adapted to h(1073.15,s)
         hMax = -2.988734 * s ^ 4 + 121.4015 * s ^ 3 - 1805.15 * s ^ 2 + 11720.16 * s - 23998.33;
@@ -3331,16 +3341,16 @@ if s >= 5.260578707  && s <= 11.9212156897728
 end
 
 #Kolla region 3 eller 4. Under kritiska punkten.
-if s >= 3.77828134  && s <= 4.41202148223476 
+if s >= 3.77828134  && s <= 4.41202148223476
     hL = h4_s(s);
-    if h < hL 
+    if h < hL
         region_hs = 4;
         return region_hs
     end
     TMax = T3_ps(100, s);
     vmax = v3_ps(100, s);
     hMax = h3_rhoT(1 / vmax, TMax);
-    if h < hMax 
+    if h < hMax
         region_hs = 3;
         return region_hs
     else
@@ -3350,18 +3360,18 @@ if s >= 3.77828134  && s <= 4.41202148223476
 end
 
 #Kolla region 3 eller 4 fr錸 kritiska punkten till 鰒re delen av b23
-if s >= 4.41202148223476  && s <= 5.260578707 
+if s >= 4.41202148223476  && s <= 5.260578707
     hV = h4_s(s);
-    if h < hV 
+    if h < hV
         region_hs = 4;
         return region_hs
     end
     #Kolla om vi 鋜 under b23 giltighetsomr錮e.
-    if s <= 5.048096828 
+    if s <= 5.048096828
         TMax = T3_ps(100, s);
         vmax = v3_ps(100, s);
         hMax = h3_rhoT(1 / vmax, TMax);
-        if h < hMax 
+        if h < hMax
             region_hs = 3;
             return region_hs
         else
@@ -3370,10 +3380,10 @@ if s >= 4.41202148223476  && s <= 5.260578707
         end
     else #Inom omr錮et f鰎 B23 i s led.
         if (h > 2812.942061)  #Ovanf鰎 B23 i h_led
-            if s > 5.09796573397125 
+            if s > 5.09796573397125
                 TMax = T2_ps(100, s);
                 hMax = h2_pT(100, TMax);
-                if h < hMax 
+                if h < hMax
                     region_hs = 2;
                     return region_hs
                 else
@@ -3393,7 +3403,7 @@ if s >= 4.41202148223476  && s <= 5.260578707
         Tact = TB23_hs(h, s);
         pact = p2_hs(h, s);
         pBound = B23p_T(Tact);
-        if pact > pBound 
+        if pact > pBound
             region_hs = 3;
             return region_hs
         else
@@ -3423,19 +3433,19 @@ if p < 16.5292  #Bellow region 3, Check region 1,4,2
         Region_prho = 1;
         return Region_prho
     end
-    if v < v2_pT(p, T4_p(p)) 
+    if v < v2_pT(p, T4_p(p))
         Region_prho = 4;
         return Region_prho
     end
     if v <= v2_pT(p, 1073.15)
         Region_prho = 2;
         return Region_prho
-    end 
+    end
     if p > 10 #Above region 5
         Region_prho = 0;
         return Region_prho
-    end 
-    if v <= v5_pT(p, 2073.15) 
+    end
+    if v <= v5_pT(p, 2073.15)
         Region_prho = 5;
         return Region_prho
     end
@@ -3461,14 +3471,14 @@ else #Check region 1,3,4,3,2 (Above the lowest point of region 3.)
         else
             Region_prho = 4;
             return Region_prho
-        end 
-    end 
+        end
+    end
     #Check if region 2
     if v < v2_pT(p, 1073.15)
         Region_prho = 2;
         return Region_prho
     end
-end 
+end
 Region_prho = 0;
 Region_prho
 end
@@ -3578,7 +3588,7 @@ h6 = [0, 0, 0, -0.003629481, 0, 0];
 
 #Calcualte density.
 region=region_pT(p,T)
-if region ==1 
+if region ==1
     rho = 1 / v1_pT(p, T);
 elseif region == 2
     rho = 1 / v2_pT(p, T);
@@ -3599,7 +3609,7 @@ Ts = T / 647.226;
 ps = p / 22.115;
 
 #Check valid area
-if T > 900 + 273.15 || (T > 600 + 273.15  && p > 300) || (T > 150 + 273.15  && p > 350) || p > 500 
+if T > 900 + 273.15 || (T > 600 + 273.15  && p > 300) || (T > 150 + 273.15  && p > 350) || p > 500
     my_AllRegions_pT = NaN;
     return my_AllRegions_pT
 end
@@ -3638,7 +3648,7 @@ elseif region == 3
     T = T3_ph(p, h);
 elseif region == 4
     xs = x4_ph(p, h);
-    if p < 16.529 
+    if p < 16.529
         v4v = v2_pT(p, T4_p(p));
         v4L = v1_pT(p, T4_p(p));
     else
@@ -3651,7 +3661,7 @@ elseif region == 5
     Ts = T5_ph(p, h);
     T = Ts;
     rho = 1 / v5_pT(p, Ts);
-else 
+else
     my_AllRegions_ph = NaN;
     return my_AllRegions_ph
 end
@@ -3659,7 +3669,7 @@ rhos = rho / 317.763;
 Ts = T / 647.226;
 ps = p / 22.115;
 #Check valid area
-if T > 900 + 273.15 || (T > 600 + 273.15  && p > 300) || (T > 150 + 273.15  && p > 350) || p > 500 
+if T > 900 + 273.15 || (T > 600 + 273.15  && p > 300) || (T > 150 + 273.15  && p > 350) || p > 500
     my_AllRegions_ph = NaN;
     return my_AllRegions_ph
 end
@@ -3707,7 +3717,7 @@ tc0 = T ^ 0.5 * (0.0102811 + 0.0299621 * T + 0.0156146 * T ^ 2 - 0.00422464 * T 
 tc1 = -0.39707 + 0.400302 * rho + 1.06 * exp(-0.171587 * (rho + 2.39219) ^ 2);
 dT = abs(T - 1) + 0.00308976;
 Q = 2 + 0.0822994 / dT ^ (3 / 5);
-if T >= 1 
+if T >= 1
     s = 1 / dT;
 else
     s = 10.0932 / dT ^ (3 / 5);
@@ -3725,7 +3735,7 @@ tc = 647.096; #K
 B = 0.2358;    #N/m
 bb = -0.625;
 my = 1.256;
-if T < 0.01 || T > tc 
+if T < 0.01 || T > tc
     Surface_Tension_T = NaN; #"Out of valid region"
     return Surface_Tension_T
 end
@@ -3754,39 +3764,39 @@ end
 function fromSIunit_T( Ins )
 #Translate Kelvin to degC
 fromSIunit_T = Ins - 273.15;
-fromSIunit_T 
+fromSIunit_T
 end
 function toSIunit_h( Ins )
 toSIunit_h = Ins;
-toSIunit_h 
+toSIunit_h
 end
 function  fromSIunit_h( Ins )
 fromSIunit_h = Ins;
-fromSIunit_h 
+fromSIunit_h
 end
 function toSIunit_v( Ins )
 toSIunit_v = Ins;
-toSIunit_v 
+toSIunit_v
 end
 function fromSIunit_v( Ins )
 fromSIunit_v = Ins;
-fromSIunit_v 
+fromSIunit_v
 end
 function toSIunit_s( Ins )
 toSIunit_s = Ins;
-toSIunit_s 
+toSIunit_s
 end
 function fromSIunit_s( Ins )
 fromSIunit_s = Ins;
-fromSIunit_s 
+fromSIunit_s
 end
 function toSIunit_u( Ins )
 toSIunit_u = Ins;
-toSIunit_u 
+toSIunit_u
 end
 function fromSIunit_u( Ins )
 fromSIunit_u = Ins;
-fromSIunit_u 
+fromSIunit_u
 end
 function toSIunit_Cp( Ins )
 toSIunit_Cp = Ins;
@@ -3794,15 +3804,15 @@ toSIunit_Cp
 end
 function fromSIunit_Cp( Ins )
 fromSIunit_Cp = Ins;
-fromSIunit_Cp 
+fromSIunit_Cp
 end
 function toSIunit_Cv( Ins )
 toSIunit_Cv = Ins;
-toSIunit_Cv 
+toSIunit_Cv
 end
 function fromSIunit_Cv( Ins )
 fromSIunit_Cv = Ins;
-fromSIunit_Cv 
+fromSIunit_Cv
 end
 function toSIunit_w( Ins )
 toSIunit_w = Ins;
@@ -3850,7 +3860,7 @@ toSIunit_my
 end
 function fromSIunit_my( Ins )
 fromSIunit_my = Ins;
-fromSIunit_my 
+fromSIunit_my
 end
 
 #***********************************************************************************************************
@@ -3903,8 +3913,8 @@ end
 T1_ps_error=abs((R1-IF97)./IF97)
 err=err+sum(sum(T1_ps_error>1E-8))
 
-#Supplementary Release on Backward Equations 
-#for Pressure as a Function of Enthalpy and Entropy p(h,s) 
+#Supplementary Release on Backward Equations
+#for Pressure as a Function of Enthalpy and Entropy p(h,s)
 #Table 3, Page 6
 h=[0.001,90,1500];
 s=[0,0,3.4];
@@ -3960,7 +3970,7 @@ end
 T2_ps_error=abs((R2-IF97)./IF97)
 err=err+sum(sum(T2_ps_error>1E-8))
 
-#Supplementary Release on Backward Equations for Pressure as a Function of Enthalpy and Entropy p(h,s) 
+#Supplementary Release on Backward Equations for Pressure as a Function of Enthalpy and Entropy p(h,s)
 #Table 3, Page 6
 h=[2800,2800,4100,2800,3600,3600,2800,2800,3400];
 s=[6.5,9.5,9.5,6,6,7,5.1,5.8,5.8];
@@ -4087,7 +4097,7 @@ for i=1:12
     R3[i]=h4_s(s[i]);
 end
 h4_s_error=abs((R3-IF97)./IF97)
-err=err+sum(sum( h4_s_error>1E-7)) 
+err=err+sum(sum( h4_s_error>1E-7))
 
 #*********************************************************************************************************
 #* 7.5 Verifiy region 5
@@ -4142,7 +4152,7 @@ end
 #Control=["99.60591861","23.84481908","73.70859421","13.84933511","1.014179779","2.295498269","2674.949641","417.4364858","2675.572029","419.099155","84.01181117","308.6107171","1546.193063","1082.773391","1547.33559210927","1.694022523","0.001043148","1.671860601","0.001043455","1.695959407","0.437925658","1.03463539","0.590310924","958.6368897","0.598135993","958.3542773","0.589636754","2.283492601","975.6236788","9.155465556","1.8359E-05","9.155756716","1.307014328","0.296482921","0.296813845","2505.547389","417.332171","2506.015308","418.9933299","2506.171426","956.2074342","308.5082185","2.075938025","4.216149431","2.077491868","4.216645119","2.074108555","4.17913573168802","4.190607038","1.552696979","3.769699683","1.553698696","3.76770022","1.551397249","4.035176364","3.902919468","472.0541571","1545.451948","472.2559492","1545.092249","472.3375235","1542.682475","1557.8585","1.22704E-05","0.000914003770302108","0.000384222","0.677593822","0.024753668","0.607458162","0.018326723","0.607509806","0.605710062","0.606283124","0.0589118685876641","0.058987784","0.258055424","0.445397961","0.288493093","0.999233827"];
 #
 #for i=1:length(fun)
-#    
+#
 #    T=:($(fun[i])(parse(Float64,$(In1[i])),parse(Float64,$(In2[i]))));
 #    Res=eval(T);
 #    Error=(Res-(parse(Float64,Control[i])))/parse(Float64,Control[i]);
@@ -4150,24 +4160,8 @@ end
 #    if Error>1E-5
 #        err=err+1;
 #        error("To large error")
-#    end   
+#    end
 #end
-
-pth(p,t)=h_pT(p,t)
-ptv(p,t)=v_pT(p,t)
-pts(p,t)=s_pT(p,t)
-pht(p,h)=T_ph(p,h)
-phs(p,h)=s_ph(p,h)
-phq(p,h)=x_ph(p,h)
-phv(p,h)=v_ph(p,h)
-phq(p,h)=x_ph(p,h)
-pst(p,s)=T_ps(p,s)
-psh(p,s)=h_ps(p,s)
-psv(p,s)=v_ps(p,s)
-psq(p,s)=x_ps(p,s)
-pqh(p,q)=h_px(p,q)
-
-export pth,ptv,pts,pht,phs,phq,phv,phq,pst,psh,psv,psq,pqh
 export Tsat_p,T_ph,T_ps,T_hs,psat_T,p_hs,hV_p,hL_p,hV_T,hL_T,h_pT,h_ps,h_px,h_prho,h_Tx,vV_p,vL_p,vV_T,vL_T,v_pT,v_ph,v_ps
 export rhoV_p,rhoL_p,rhoV_T,rhoL_T,rho_pT,rho_ph,rho_ps,sV_p,sL_p,sV_T,sL_T,s_pT,s_ph,uV_p,uL_p,uV_T,uL_T,u_pT,u_ph,u_ps,CpV_p
 export CpL_p,CpV_T,CpL_T,Cp_pT,Cp_ph,Cp_ps,CvV_p,CvL_p,CvV_T,CvL_T,Cv_pT,Cv_ph,Cv_ps,wV_p,wL_p,wV_T,wL_T,w_pT,w_ph,w_ps,my_pT,my_ph,my_ps
