@@ -197,9 +197,8 @@ IAPWS Release on Surface Tension of Ordinary Water Substance,September 1994
 |x_ps|p| s|Surface tension for two phase water/steam as a function of T|
 
 ### Vapour Volume Fraction
-Observe that vapour volume fraction is very sensitive. Vapour volume is about 1000 times
-greater than liquid volume and therefore vapour volume fraction gets close to the accurancy
-of IAPWS IF-97
+Observe that vapour volume fraction is very sensitive. Vapour volume is about 1000 times greater than liquid volume and therefore vapour volume fraction gets close to the accurancy of IAPWS IF-97
+
 |Function|In1|In2|Out|
 |-|-|-|-|
 |vx_ph|p| h|Vapour volume fraction as a function of pressure and enthalpy|
