@@ -48,7 +48,7 @@ international association for properties of water and steam (www.iapws.org).
 |my|Viscosity|Pa s|
 |tc|Thermal Conductivity|W/(m °C)|
 |st|Surface Tension|N/m|
-|x|Vapour fraction (0-1)|-|
+|x or q|Vapour fraction (0-1)|-|
 |vx|Vapour Volume Fraction (0-1)|-|
 
 ## XSteam functions
@@ -66,7 +66,7 @@ international association for properties of water and steam (www.iapws.org).
 |-|-|-|-|
 |psat_T or tp|T||Saturation pressure|
 |p_hs or hsp|h|s|Pressure as a function of h and s.|
-|p_hrho|h|rho|Pressure as a function of h and rho (density).Very unaccurate for solid water region since it's almost incompressible!|
+|p_hrho or hvp|h|rho|Pressure as a function of h and rho (density) or Specific volume .Very unaccurate for solid water region since it's almost incompressible!|
 
 ### Enthalpy
 |Function|In1|In2|Out|
@@ -79,7 +79,7 @@ international association for properties of water and steam (www.iapws.org).
 |h_ps or psh| p| s| Entalpy as a function of pressure and entropy.|
 |h_px or pqh| p| x| Entalpy as a function of pressure and vapour fraction|
 |h_Tx or tqh| T| X| Entalpy as a function of temperature and vapour fraction|
-|h_prho| p| rho|Entalpy as a function of pressure and density. Observe for low temperatures (liquid) this equation has 2 solutions.(Not valid!!)|
+|h_prho or pvh| p| rho|Entalpy as a function of pressure and density or Specific volume. Observe for low temperatures (liquid) this equation has 2 solutions.(Not valid!!)|
 
 ### Specific volume
 |Function|In1|In2|Out|
@@ -95,13 +95,13 @@ international association for properties of water and steam (www.iapws.org).
 ### Density
 |Function|In1|In2|Out|
 |-|-|-|-|
-|rhoV_p| p|| Saturated vapour density|
-|rhoL_p| p|| Saturated liquid density|
-|rhoV_T| T|| Saturated vapour density|
-|rhoL_T| T|| Saturated liquid density|
-|rho_pT| p| T| Density as a function of pressure and temperature.|
-|rho_ph| p| h| Density as a function of pressure and enthalpy|
-|rho_ps| p| s| Density as a function of pressure and entropy.|
+|rhoV_p or 1/pqv(p,1)| p|| Saturated vapour density|
+|rhoL_p or 1/pqv(p,0)| p|| Saturated liquid density|
+|rhoV_T or 1/tqv(t,1)| T|| Saturated vapour density|
+|rhoL_T or 1/tqv(t,0)| T|| Saturated liquid density|
+|rho_pT or 1/ptv| p| T| Density as a function of pressure and temperature.|
+|rho_ph or 1/phv| p| h| Density as a function of pressure and enthalpy|
+|rho_ps or 1/psv| p| s| Density as a function of pressure and entropy.|
 
 ### Specific entropy
 |Function|In1|In2|Out|
@@ -132,8 +132,8 @@ international association for properties of water and steam (www.iapws.org).
 |CpV_T or tqc(t,1)| T|| Saturated vapour heat capacity|
 |CpL_T or tqc(t,0)| T|| Saturated liquid heat capacity|
 |Cp_pT or ptc|p| T|Specific isobaric heat capacity as a function of pressure and temperature.|
-|Cp_ph phc|p| h|Specific isobaric heat capacity as a function of pressure and enthalpy|
-|Cp_ps psc|p| s|Specific isobaric heat capacity as a function of pressure and entropy.|
+|Cp_ph or phc|p| h|Specific isobaric heat capacity as a function of pressure and enthalpy|
+|Cp_ps or psc|p| s|Specific isobaric heat capacity as a function of pressure and entropy.|
 
 ### Specific isochoric heat capacity
 |Function|In1|In2|Out|
@@ -154,8 +154,8 @@ international association for properties of water and steam (www.iapws.org).
 |wV_T or tqw(t,1)| T|| Saturated vapour speed of sound|
 |wL_T or tqw(t,0)| T|| Saturated liquid speed of sound|
 |w_pT or ptw|p| T|Speed of sound as a function of pressure and temperature.|
-|w_ph phw| p| h| Speed of sound as a function of pressure and enthalpy|
-|w_ps psw| p| s| Speed of sound as a function of pressure and entropy.|
+|w_ph or phw| p| h| Speed of sound as a function of pressure and enthalpy|
+|w_ps or psw| p| s| Speed of sound as a function of pressure and entropy.|
 
 ### Viscosity
 Viscosity is not part of IAPWS Steam IF97. Equations from "Revised Release on the

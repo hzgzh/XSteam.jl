@@ -4211,8 +4211,10 @@ ptu(p,t)=u_pT(p,t)
 phu(p,h)=u_ph(p,h)
 psu(p,h)=s_ph(p,h)
 hsk(h,s)=tc_hs(h,s)
+pvh(p,v)=h_prho(p,1/v)
+hvp(h,v)=p_hrho(h,1/v)
 export phc,phg,phq,phs,pht,phv,phw,phm,pqc,pqh,pqk,pqg,pqs,pqv,pqw,pqm,psc,psg,psh,psq,pst,psv,psw,psm
-export pt,ptc,ptg,pth,ptk,ptm,pts,ptv,ptw,tp,tqc,tqg,tqh,tqk,tqs,tqv,tqw,hst,pqu,tqu,ptu,phu,psu,hsk
+export pt,ptc,ptg,pth,ptk,ptm,pts,ptv,ptw,tp,tqc,tqg,tqh,tqk,tqs,tqv,tqw,hst,pqu,tqu,ptu,phu,psu,hsk,pvh,hvp
 export Tsat_p,T_ph,T_ps,T_hs,psat_T,p_hs,hV_p,hL_p,hV_T,hL_T,h_pT,h_ps,h_px,h_prho,h_Tx,vV_p,vL_p,vV_T,vL_T,v_pT,v_ph,v_ps
 export rhoV_p,rhoL_p,rhoV_T,rhoL_T,rho_pT,rho_ph,rho_ps,sV_p,sL_p,sV_T,sL_T,s_pT,s_ph,uV_p,uL_p,uV_T,uL_T,u_pT,u_ph,u_ps,CpV_p
 export CpL_p,CpV_T,CpL_T,Cp_pT,Cp_ph,Cp_ps,CvV_p,CvL_p,CvV_T,CvL_T,Cv_pT,Cv_ph,Cv_ps,wV_p,wL_p,wV_T,wL_T,w_pT,w_ph,w_ps,my_pT,my_ph,my_ps
