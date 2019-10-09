@@ -223,8 +223,8 @@ module XSteam
 #switch fun
     #***********************************************************************************************************
     #*1.2 Temperature
-Tsat_p(p)=Tsat_p(convert(Float64,p))
-function Tsat_p(p::Float64)
+
+function Tsat_p(p)
 
     p = toSIunit_p(p);
     if p > 0.000611657  && p < 22.06395
@@ -234,8 +234,8 @@ function Tsat_p(p::Float64)
     end
     Out
 end
-Tsat_s(s)=Tsat_s(convert(Float64,s))
-function Tsat_s(s::Float64)
+
+function Tsat_s(s)
     s = toSIunit_s(s);
     if s > -0.0001545495919  && s < 9.155759395
         ps = p4_s(s);
@@ -245,8 +245,8 @@ function Tsat_s(s::Float64)
     end
     Out
 end
-T_ph(p,h)=T_ph(convert(Float64,p),convert(Float64,h))
-function T_ph(p::Float64,h::Float64)
+
+function T_ph(p,h)
     p = toSIunit_p(p);
     h = toSIunit_h(h);
     region = region_ph(p, h);
@@ -266,8 +266,8 @@ function T_ph(p::Float64,h::Float64)
     end
     Out
 end
-T_ps(p,s)=T_ps(convert(Float64,p),convert(Float64,s))
-function T_ps(p::T,s::T) where T<:Real
+
+function T_ps(p,s)
     #println("p=",p,"s=",s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
@@ -288,8 +288,8 @@ function T_ps(p::T,s::T) where T<:Real
     end
     Out
 end
-T_hs(p,s)=T_hs(promote(h,s)...)
-function T_hs(h::Float64,s::Float64)
+
+function T_hs(h,s)
     h = toSIunit_h(h);
     s = toSIunit_s(s);
     Region = region_hs(h, s);
@@ -314,8 +314,8 @@ function T_hs(h::Float64,s::Float64)
 end
     #***********************************************************************************************************
     #*1.3 Pressure (p)
-psat_T(t)=psat_T(convert(Float64,t))
-function psat_T(t::Float64)
+
+function psat_T(t)
     T = toSIunit_T(t);
     if T < 647.096  && T > 273.15
         Out = fromSIunit_p(p4_T(T));
@@ -324,8 +324,8 @@ function psat_T(t::Float64)
     end
     Out
 end
-psat_s(s)=psat_s(convert(Float64,s))
-function psat_s(s::Float64)
+
+function psat_s(s)
     s = toSIunit_s(s);
     if s > -0.0001545495919  && s < 9.155759395
         Out = fromSIunit_p(p4_s(s));
@@ -334,8 +334,8 @@ function psat_s(s::Float64)
     end
     Out
 end
-p_hs(h,s)=p_hs(convert(Float64,h),convert(Float64,s))
-function p_hs(h::Float64,s::Float64)
+
+function p_hs(h,s)
     h = toSIunit_h(h);
     s = toSIunit_s(s);
     Region = region_hs(h, s);
@@ -356,8 +356,8 @@ function p_hs(h::Float64,s::Float64)
     end
     Out
 end
-p_hrho(h,rho)=p_hrho(promote(h,rho)...)
-function p_hrho(h::Float64,rho::Float64)
+
+function p_hrho(h,rho)
     h=h;
     rho=rho;
 #Not valid for water or sumpercritical since water rho does not change very much with p.
@@ -380,8 +380,8 @@ function p_hrho(h::Float64,rho::Float64)
 end
     #***********************************************************************************************************
     #*1.4 Enthalpy (h)
-hV_p(p)=hV_p(convert(Float64,p))
-function hV_p(p::Float64)
+
+function hV_p(p)
     p = toSIunit_p(p);
     if p > 0.000611657 && p < 22.06395
         Out = fromSIunit_h(h4V_p(p));
@@ -390,8 +390,8 @@ function hV_p(p::Float64)
     end
     Out
 end
-hL_p(p)=hL_p(convert(Float64,p))
-function hL_p(p::Float64)
+
+function hL_p(p)
     p = toSIunit_p(p);
     if p > 0.000611657 && p < 22.06395
         Out = fromSIunit_h(h4L_p(p));
@@ -402,7 +402,7 @@ function hL_p(p::Float64)
 end
 
 function hV_T(t)
-    t=convert(Float64,t)
+
     T = toSIunit_T(t);
     if T > 273.15 && T < 647.096
         p = p4_T(T);
@@ -414,7 +414,7 @@ function hV_T(t)
 end
 
 function hL_T(t)
-    t=convert(Float64,t)
+
     T = toSIunit_T(t);
     if T > 273.15 && T < 647.096
         p = p4_T(T);
@@ -425,8 +425,8 @@ function hL_T(t)
     Out
 end
 
-h_pT(p,t)=h_pT(promote(p,t)...)
-function h_pT(p::Float64,t::Float64)
+
+function h_pT(p,t)
     p = toSIunit_p(p);
     T = toSIunit_T(t);
     Region = region_pT(p, T);
@@ -446,8 +446,8 @@ function h_pT(p::Float64,t::Float64)
     end
     Out
 end
-h_ps(p,s)=h_ps(promote(p,s)...)
-function h_ps(p::Float64,s::Float64)
+
+function h_ps(p,s)
     p = toSIunit_p(p);
     s = toSIunit_s(s);
     Region = region_ps(p, s);
@@ -468,8 +468,8 @@ function h_ps(p::Float64,s::Float64)
     end
     Out
 end
-h_px(p,x)=h_px(promote(p,x)...)
-function h_px(p::T,x::T) where T<:Real
+
+function h_px(p,x)
     p = toSIunit_p(p);
     x = toSIunit_x(x);
     if x > 1 || x < 0 || p >= 22.064
@@ -481,8 +481,8 @@ function h_px(p::T,x::T) where T<:Real
     Out = hL + x * (hV - hL);
     Out
 end
-h_prho(p,rho)=h_prho(promote(p,rho)...)
-function h_prho(p::Float64,rho::Float64)
+
+function h_prho(p,rho)
     p = toSIunit_p(p);
     rho = 1 / toSIunit_v(1 / rho);
     Region = Region_prho(p, rho);
@@ -512,8 +512,8 @@ function h_prho(p::Float64,rho::Float64)
     end
     Out
 end
-h_Tx(t,x)=h_Tx(promote(t,x)...)
-function h_Tx(t::Float64,x::Float64)
+
+function h_Tx(t,x)
     T = toSIunit_T(t);
     x = toSIunit_x(x);
     if x > 1 || x < 0 || T >= 647.096
@@ -528,8 +528,8 @@ function h_Tx(t::Float64,x::Float64)
 end
     #***********************************************************************************************************
     #*1.5 Specific Volume (v)
-vV_p(p)=vV_p(convert(Float64,p))
-function vV_p(p::Float64)
+
+function vV_p(p)
     p = toSIunit_p(p);
     if p > 0.000611657  && p < 22.06395
         if p < 16.529
@@ -544,8 +544,8 @@ function vV_p(p::Float64)
 end
 rhoV_p(p)=1/vV_p(p)
 
-vL_p(p)=vL_p(convert(Float64,p))
-function vL_p(p::Float64)
+
+function vL_p(p)
     p = toSIunit_p(p);
     if p > 0.000611657  && p < 22.06395
         if p < 16.529
@@ -559,8 +559,8 @@ function vL_p(p::Float64)
     Out
 end
 rhoL_p(p)=1/vL_p(p)
-vV_T(t)=vV_T(convert(Float64,t))
-function vV_T(t::Float64)
+
+function vV_T(t)
     T = toSIunit_T(t);
     if T > 273.15  && T < 647.096
         if T <= 623.15
@@ -574,8 +574,8 @@ function vV_T(t::Float64)
     Out
 end
 rhoV_T(t)=1/vV_T(t)
-vL_T(t)=vL_T(convert(Float64,t))
-function vL_T(t::Float64)
+
+function vL_T(t)
     T = toSIunit_T(t);
     if T > 273.15  && T < 647.096
         if T <= 623.15
@@ -4162,6 +4162,57 @@ end
 #        error("To large error")
 #    end
 #end
+phc(p,h)=Cp_ph(p,h)
+phg(p,h)=Cp_ph(p,h)/Cv_ph(p,h)
+phq(p,h)=x_ph(p,h)
+phs(p,h)=s_ph(p,h)
+pht(p,h)=T_ph(p,h)
+phv(p,h)=v_ph(p,h)
+phw(p,h)=w_ph(p,h)
+phm(p,h)=my_ph(p,h)
+pqc(p,q)=(1.0-q)*CpL_p(p)+q*CpV_p(p)
+pqh(p,q)=(1.0-q)*hL_p(p)+q*hV_p(p)
+pqk(p,q)=(1.0-q)*tcL_p(p)+q*tcV_p(p)
+pqg(p,q)=(1.0-q)*CpL_p(p)/CvL_p(p)+q*CpV_p(p)/CvV_p(p)
+pqs(p,q)=(1.0-q)*sL_p(p)+q*sV_p(p)
+pqv(p,q)=(1.0-q)*vL_p(p)+q*vV_p(p)
+pqw(p,q)=(1.0-q)*wL_p(p)+q*wV_p(p)
+pqm(p,q)=(1.0-q)*my_ph(p,hL_p(p))+q*my_ph(p,hV_p(p))
+psc(p,s)=Cp_ps(p,s)
+psg(p,s)=Cp_ps(p,s)/Cv_ps(p,s)
+psh(p,s)=h_ps(p,s)
+psq(p,s)=x_ps(p,s)
+pst(p,s)=T_ps(p,s)
+psv(p,s)=v_ps(p,s)
+psw(p,s)=w_ps(p,s)
+psm(p,s)=my_ps(p,s)
+pt(p)=Tsat_p(p)
+ptc(p,t)=Cp_pT(p,t)
+ptg(p,t)=Cp_pT(p,t)/Cv_pT(p,t)
+pth(p,t)=h_pT(p,t)
+ptk(p,t)=tc_pT(p,t)
+ptm(p,t)=my_pT(p,t)
+pts(p,t)=s_pT(p,t)
+ptv(p,t)=v_pT(p,t)
+ptw(p,t)=w_pT(p,t)
+tp(t)=psat_T(t)
+tqc(t,q)=(1.0-q)*CpL_T(t)+q*CpV_T(t)
+tqg(t,q)=(1.0-q)*CpL_T(t)/CvL_T(t)+q*CpV_T(t)/CvV_T(t)
+tqh(t,q)=(1.0-q)*hL_T(t)+q*hV_T(t)
+tqk(t,q)=(1.0-q)*tcL_T(t)+q*tcV_T(t)
+tqs(t,q)=(1.0-q)*sL_T(t)+q*sV_T(t)
+tqv(t,q)=(1.0-q)*vL_T(t)+q*vV_T(t)
+tqw(t,q)=(1.0-q)*wL_T(t)+q*wV_T(t)
+hst(h,s)=T_hs(h,s)
+hsp(h,s)=p_hs(h,s)
+pqu(p,q)=(1.0-q)*uL_p(p)+q*uV_p(p)
+tqu(t,q)=(1.0-q)*uL_T(t)+q*uV_T(t)
+ptu(p,t)=u_pT(p,t)
+phu(p,h)=u_ph(p,h)
+psu(p,h)=s_ph(p,h)
+hsk(h,s)=tc_hs(h,s)
+export phc,phg,phq,phs,pht,phv,phw,phm,pqc,pqh,pqk,pqg,pqs,pqv,pqw,pqm,psc,psg,psh,psq,pst,psv,psw,psm
+export pt,ptc,ptg,pth,ptk,ptm,pts,ptv,ptw,tp,tqc,tqg,tqh,tqk,tqs,tqv,tqw,hst,pqu,tqu,ptu,phu,psu,hsk
 export Tsat_p,T_ph,T_ps,T_hs,psat_T,p_hs,hV_p,hL_p,hV_T,hL_T,h_pT,h_ps,h_px,h_prho,h_Tx,vV_p,vL_p,vV_T,vL_T,v_pT,v_ph,v_ps
 export rhoV_p,rhoL_p,rhoV_T,rhoL_T,rho_pT,rho_ph,rho_ps,sV_p,sL_p,sV_T,sL_T,s_pT,s_ph,uV_p,uL_p,uV_T,uL_T,u_pT,u_ph,u_ps,CpV_p
 export CpL_p,CpV_T,CpL_T,Cp_pT,Cp_ph,Cp_ps,CvV_p,CvL_p,CvV_T,CvL_T,Cv_pT,Cv_ph,Cv_ps,wV_p,wL_p,wV_T,wL_T,w_pT,w_ph,w_ps,my_pT,my_ph,my_ps

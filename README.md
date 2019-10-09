@@ -16,7 +16,7 @@ conversion functions for English units are enclosed with the file.
 ### Usage
 The XSteam code are used in the following way:
 * Example: rho_pT(1,200) returns the density at 1 bar and 200°C.
-
+* winsteam syntax pth(1,200) returns the entalpy at 1bar and 200°C
 
 ### Introduction
 
@@ -56,41 +56,41 @@ international association for properties of water and steam (www.iapws.org).
 ### Temperature
 |Function|In1|In2|Out|
 |-|-|-|-|
-|Tsat_p|p||Saturation temperature|
-|T_ph|p|H|Temperture as a function of pressure and enthalpy|
-|T_ps|p|S|Temperture as a function of pressure and entropy|
-|T_hs|h|S|Temperture as a function of enthalpy and entropy|
+|Tsat_p or pt|p||Saturation temperature|
+|T_ph or pht|p|H|Temperture as a function of pressure and enthalpy|
+|T_ps or pst|p|S|Temperture as a function of pressure and entropy|
+|T_hs or hst|h|S|Temperture as a function of enthalpy and entropy|
 
 ### Pressure
 |Function|In1|In2|Out|
 |-|-|-|-|
-|psat_T|T||Saturation pressure|
-|p_hs|h|s|Pressure as a function of h and s.|
+|psat_T or tp|T||Saturation pressure|
+|p_hs or hsp|h|s|Pressure as a function of h and s.|
 |p_hrho|h|rho|Pressure as a function of h and rho (density).Very unaccurate for solid water region since it's almost incompressible!|
 
 ### Enthalpy
 |Function|In1|In2|Out|
 |-|-|-|-|
-|hV_p|p||Saturated vapour enthalpy|
-|hL_p|p||Saturated liquid enthalpy|
-|hV_T|T||Saturated vapour enthalpy|
-|hL_T|T||Saturated liquid enthalpy|
-|h_pT| p| T| Entalpy as a function of pressure and temperature.|
-|h_ps| p| s| Entalpy as a function of pressure and entropy.|
-|h_px| p| x| Entalpy as a function of pressure and vapour fraction|
-|h_Tx| T| X| Entalpy as a function of temperature and vapour fraction|
+|hV_p or pqh(p,1)|p||Saturated vapour enthalpy|
+|hL_p or pqh(p,0)|p||Saturated liquid enthalpy|
+|hV_T or tqh(t,1)|T||Saturated vapour enthalpy|
+|hL_T or tqh(t,0)|T||Saturated liquid enthalpy|
+|h_pT or pth| p| T| Entalpy as a function of pressure and temperature.|
+|h_ps or psh| p| s| Entalpy as a function of pressure and entropy.|
+|h_px or pqh| p| x| Entalpy as a function of pressure and vapour fraction|
+|h_Tx or tqh| T| X| Entalpy as a function of temperature and vapour fraction|
 |h_prho| p| rho|Entalpy as a function of pressure and density. Observe for low temperatures (liquid) this equation has 2 solutions.(Not valid!!)|
 
 ### Specific volume
 |Function|In1|In2|Out|
 |-|-|-|-|
-|vV_p| p|| Saturated vapour volume|
-|vL_p| p|| Saturated liquid volume|
-|vV_T| T|| Saturated vapour volume|
-|vL_T| T|| Saturated liquid volume|
-|v_pT| p| T|Specific volume as a function of pressure and temperature.|
-|v_ph| p| h| Specific volume as a function of pressure and enthalpy|
-|v_ps| p| s| Specific volume as a function of pressure and entropy.|
+|vV_p or pqv(p,1)| p|| Saturated vapour volume|
+|vL_p or pqv(p,0)| p|| Saturated liquid volume|
+|vV_T or tqv(p,1)| T|| Saturated vapour volume|
+|vL_T or tqv(p,0)| T|| Saturated liquid volume|
+|v_pT or ptv| p| T|Specific volume as a function of pressure and temperature.|
+|v_ph or phv| p| h| Specific volume as a function of pressure and enthalpy|
+|v_ps or psv| p| s| Specific volume as a function of pressure and entropy.|
 
 ### Density
 |Function|In1|In2|Out|
@@ -106,34 +106,34 @@ international association for properties of water and steam (www.iapws.org).
 ### Specific entropy
 |Function|In1|In2|Out|
 |-|-|-|-|
-|sV_p| p|| Saturated vapour entropy|
-|sL_p| p|| Saturated liquid entropy|
-|sV_T| T|| Saturated vapour entropy|
-|sL_T| T|| Saturated liquid entropy|
-|s_pT|p| T|Specific entropy as a function of pressure and temperature(Returns saturated vapour entalpy if mixture.)|
-|s_ph| p| h|Specific entropy as a function of pressure and enthalpy|
+|sV_p or pqs(p,1)| p|| Saturated vapour entropy|
+|sL_p or pqs(p,0)| p|| Saturated liquid entropy|
+|sV_T or tqs(p,1)| T|| Saturated vapour entropy|
+|sL_T or tqs(p,0)| T|| Saturated liquid entropy|
+|s_pT or pts|p| T|Specific entropy as a function of pressure and temperature(Returns saturated vapour entalpy if mixture.)|
+|s_ph or phs| p| h|Specific entropy as a function of pressure and enthalpy|
 
  ### Specific internal energy
  |Function|In1|In2|Out|
  |-|-|-|-|
- |uV_p| p|| Saturated vapour internal energy|
-|uL_p| p|| Saturated liquid internal energy|
-|uV_T| T|| Saturated vapour internal energy|
-|uL_T| T|| Saturated liquid internal energy|
-|u_pT|p| T|Specific internal energy as a function of pressure and temperature.|
-|u_ph|p| h|Specific internal energy as a function of pressure and enthalpy|
-|u_ps|p| s|Specific internal energy as a function of pressure and entropy.|
+|uV_p or pqu(p,1)| p|| Saturated vapour internal energy|
+|uL_p or pqu(p,0)| p|| Saturated liquid internal energy|
+|uV_T or tqu(t,1)| T|| Saturated vapour internal energy|
+|uL_T or tqu(t,0)| T|| Saturated liquid internal energy|
+|u_pT or ptu|p| T|Specific internal energy as a function of pressure and temperature.|
+|u_ph or phu|p| h|Specific internal energy as a function of pressure and enthalpy|
+|u_ps or psu|p| s|Specific internal energy as a function of pressure and entropy.|
 
 ### Specific isobaric heat capacity
 |Function|In1|In2|Out|
 |-|-|-|-|
-|CpV_p| p||Saturated vapour heat capacity|
-|CpL_p| p|| Saturated liquid heat capacity|
-|CpV_T| T|| Saturated vapour heat capacity|
-|CpL_T| T|| Saturated liquid heat capacity|
-|Cp_pT|p| T|Specific isobaric heat capacity as a function of pressure and temperature.|
-|Cp_ph|p| h|Specific isobaric heat capacity as a function of pressure and enthalpy|
-|Cp_ps|p| s|Specific isobaric heat capacity as a function of pressure and entropy.|
+|CpV_p or pqc(p,1)| p||Saturated vapour heat capacity|
+|CpL_p or pqc(p,0)| p|| Saturated liquid heat capacity|
+|CpV_T or tqc(t,1)| T|| Saturated vapour heat capacity|
+|CpL_T or tqc(t,0)| T|| Saturated liquid heat capacity|
+|Cp_pT or ptc|p| T|Specific isobaric heat capacity as a function of pressure and temperature.|
+|Cp_ph phc|p| h|Specific isobaric heat capacity as a function of pressure and enthalpy|
+|Cp_ps psc|p| s|Specific isobaric heat capacity as a function of pressure and entropy.|
 
 ### Specific isochoric heat capacity
 |Function|In1|In2|Out|
@@ -149,13 +149,13 @@ international association for properties of water and steam (www.iapws.org).
 ### Speed of sound
 |Function|In1|In2|Out|
 |-|-|-|-|
-|wV_p| p|| Saturated vapour speed of sound|
-|wL_p| p|| Saturated liquid speed of sound|
-|wV_T| T|| Saturated vapour speed of sound|
-|wL_T| T|| Saturated liquid speed of sound|
-|w_pT|p| T|Speed of sound as a function of pressure and temperature.|
-|w_ph| p| h| Speed of sound as a function of pressure and enthalpy|
-|w_ps| p| s| Speed of sound as a function of pressure and entropy.|
+|wV_p or pqw(p,1)| p|| Saturated vapour speed of sound|
+|wL_p or pqw(p,0)| p|| Saturated liquid speed of sound|
+|wV_T or tqw(t,1)| T|| Saturated vapour speed of sound|
+|wL_T or tqw(t,0)| T|| Saturated liquid speed of sound|
+|w_pT or ptw|p| T|Speed of sound as a function of pressure and temperature.|
+|w_ph phw| p| h| Speed of sound as a function of pressure and enthalpy|
+|w_ps psw| p| s| Speed of sound as a function of pressure and entropy.|
 
 ### Viscosity
 Viscosity is not part of IAPWS Steam IF97. Equations from "Revised Release on the
@@ -165,22 +165,23 @@ since it will be two fases.
 
 |Function|In1|In2|Out|
 |-|-|-|-|
-|my_pT| p| T| Viscosity as a function of pressure and temperature.|
-|my_ph| p| h| Viscosity as a function of pressure and enthalpy|
-|my_ps| p| s| Viscosity as a function of pressure and entropy.|
+|my_pT or ptm| p| T| Viscosity as a function of pressure and temperature.|
+|my_ph or phm| p| h| Viscosity as a function of pressure and enthalpy|
+|my_ps or psm| p| s| Viscosity as a function of pressure and entropy.|
+|pqm|p|q| Viscosity as a function of pressure and quality.|
 
 ### Thermal Conductivity
 Revised release on the IAPS Formulation 1985 for the Thermal Conductivity of ordinary water substance (IAPWS 1998)
 
 |Function|In1|In2|Out|
 |-|-|-|-|
-|tcL_p| p|| Saturated vapour thermal conductivity|
-|tcV_p| p|| Saturated liquid thermal conductivity|
-|tcL_T| T| |Saturated vapour thermal conductivity|
-|tcV_T| T|| Saturated liquid thermal conductivity|
-|tc_pT|p| T|Thermal conductivity as a function of pressure and temperature.|
-|tc_ph|p| h|Thermal conductivity as a function of pressure and enthalpy|
-|tc_hs| h| s| Thermal conductivity as a function of enthalpy and entropy|
+|tcL_p or pqk(p,1)| p|| Saturated vapour thermal conductivity|
+|tcV_p or pqk(p,0)| p|| Saturated liquid thermal conductivity|
+|tcL_T or tqk(t,1)| T||Saturated vapour thermal conductivity|
+|tcV_T or tqk(t,0)| T|| Saturated liquid thermal conductivity|
+|tc_pT or ptk|p| T|Thermal conductivity as a function of pressure and temperature.|
+|tc_ph or phk|p| h|Thermal conductivity as a function of pressure and enthalpy|
+|tc_hs or hsk|h| s| Thermal conductivity as a function of enthalpy and entropy|
 
 ### Surface Tension
 IAPWS Release on Surface Tension of Ordinary Water Substance,September 1994
@@ -193,8 +194,8 @@ IAPWS Release on Surface Tension of Ordinary Water Substance,September 1994
 ### Vapour fraction
 |Function|In1|In2|Out|
 |-|-|-|-|
-|x_ph|p| h|Vapour fraction for two phase water/steam as a function of T|
-|x_ps|p| s|Vapour fraction for two phase water/steam as a function of T|
+|x_ph or phq|p| h|Vapour fraction for two phase water/steam as a function of T|
+|x_ps or psq|p| s|Vapour fraction for two phase water/steam as a function of T|
 
 ### Vapour Volume Fraction
 Observe that vapour volume fraction is very sensitive. Vapour volume is about 1000 times greater than liquid volume and therefore vapour volume fraction gets close to the accurancy of IAPWS IF-97
