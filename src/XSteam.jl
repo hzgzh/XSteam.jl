@@ -4054,8 +4054,6 @@ function check()
         err += ((abs(res) > 1E-8) ? 1 : 0) 
     end
 
-
-
     @info "p3hs $err"
     h=[1700,2000,2100,2500,2400,2700];
     s=[3.8,4.2,4.3,5.1,4.7,5];
@@ -4064,12 +4062,7 @@ function check()
         res = abs(p3_hs(h[i],s[i]) - IF97[i])./ IF97[i];
         err += ((abs(res) > 1E-8) ? 1 : 0) 
     end
-        # R3=zeros(1,6);
-        # for i=1:6
-        #     R3[i]=p3_hs(h[i],s[i]);
-        # end
-        # p3_hs_error=abs((R3-IF97)./IF97)
-        # err=err+sum(sum(p3_hs_error>1E-8))
+    # err=err+sum(sum(p3_hs_error>1E-8))
 
     @info "h3_pT (Iteration) $err"
     p=[255.83702,222.93064,783.09564]./10;
@@ -4077,13 +4070,8 @@ function check()
     IF97=[1863.271389,2375.696155,2258.626582];
     for i = 1:length(IF97)
         res = abs(h3_pT(p[i],T[i]) - IF97[i])./ IF97[i];
-        err += ((abs(res) > 1E-8) ? 1 : 0) 
+        err += ((abs(res) > 1E-6) ? 1 : 0) 
     end
-    # R3=zeros(1,3);
-    # for i=1:3
-    #     R3[i]=h3_pT(p[i],T[i]);
-    # end
-    # h3_pT_error=abs((R3-IF97)./IF97)
     # err=err+sum(sum(h3_pT_error>1E-6)) #Decimals in IF97
 
     #*********************************************************************************************************
@@ -4105,7 +4093,6 @@ function check()
     IF97=[308.5509647,700.6304472,1198.359754,1685.025565,1816.891476,1949.352563,2723.729985,2599.04721,2511.861477,2687.69385,2451.623609,2144.360448];
     res = abs.(h4_s.(s) .- IF97) ./ IF97
     err += sum(res .>1E-7)
-
     #*********************************************************************************************************
     @info "Section 7.5"
     @info "7.5 Verifiy region 5"
