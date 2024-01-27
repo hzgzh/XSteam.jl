@@ -4013,7 +4013,6 @@ function check()
             13.8935717 44.6579342 6.34165359;
             502.005554 383.444594 760.696041];
     for i = 1:3
-        # @show FunC(T[i],rho[i])
         res = (FunC(rho[i],T[i]) .- IF97[:,i]) ./ IF97[:,i]
         err += sum(abs.(res) .> 1e-8)
     end
@@ -4081,21 +4080,20 @@ function check()
         res = abs(h3_pT(p[i],T[i]) - IF97[i])./ IF97[i];
         err += ((abs(res) > 1E-8) ? 1 : 0) 
     end
-        # R3=zeros(1,3);
-        # for i=1:3
-        #     R3[i]=h3_pT(p[i],T[i]);
-        # end
-        # h3_pT_error=abs((R3-IF97)./IF97)
-        # err=err+sum(sum(h3_pT_error>1E-6)) #Decimals in IF97
+    # R3=zeros(1,3);
+    # for i=1:3
+    #     R3[i]=h3_pT(p[i],T[i]);
+    # end
+    # h3_pT_error=abs((R3-IF97)./IF97)
+    # err=err+sum(sum(h3_pT_error>1E-6)) #Decimals in IF97
 
     #*********************************************************************************************************
     @info "Section 7.4"
     @info "7.4 Verifiy region 4 $err"
     #Saturation pressure, If97, Table 35, Page 34
-    T=[300,500,600];
+    T=[300.0,500.0,600.0];
     IF97=[0.0353658941, 26.3889776, 123.443146]/10;
-    res = abs.(p4_T.(T) .- IF97) ./ IF97
-    err += sum(res .>1E-8)
+    err += sum(res .> 1E-8)
     
     @info "7.4.1 $err"
     T=[1,10,100]/10;
